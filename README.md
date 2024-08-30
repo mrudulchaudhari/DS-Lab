@@ -6,3 +6,6 @@
 
 ## Name - Homeshwari Baitalwar
 ## Algorithm - Hashing using Quadratic Probing
+
+## Name - Adhishree Shiledar
+## Algorithm - Sorting(Merg Sort)
