@@ -9,3 +9,6 @@
 
 ## Name - Khushi Sarda
 ## Algorithm - Binary search tree (Algorithm)
+
+## Name - Adhishree Shiledar
+## Algorithm - Sorting(Merg Sort)
