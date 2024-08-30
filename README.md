@@ -6,3 +6,6 @@
 
 ## Name - Homeshwari Baitalwar
 ## Algorithm - Hashing using Quadratic Probing
+
+## Name - Khushi Sarda
+## Algorithm - Binary search tree
