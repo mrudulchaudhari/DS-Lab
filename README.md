@@ -8,4 +8,4 @@
 ## Algorithm - Hashing using Quadratic Probing
 
 ## Name - Khushi Sarda
-## Algorithm - Binary search tree
+## Algorithm - Binary search tree (Algorithm)
