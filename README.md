@@ -14,4 +14,4 @@
 ## Algorithm - Sorting(Merge Sort)
 
 ## Name - Himanshu Sinha
-## Algoritm - Floyd's APSP
+## Algoritm - Floyd's APSP (Graph)
