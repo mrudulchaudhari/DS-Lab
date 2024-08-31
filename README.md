@@ -11,4 +11,7 @@
 ## Algorithm - Binary search tree (Algorithm)
 
 ## Name - Adhishree Shiledar
-## Algorithm - Sorting(Merg Sort)
+## Algorithm - Sorting(Merge Sort)
+
+## Name - Himanshu Sinha
+## Algoritm - Floyd's APSP
