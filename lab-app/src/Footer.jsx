@@ -1,10 +1,36 @@
-function Footer(){
+import React from 'react';
 
-    return(
-
-        <footer>
-            <p>&copy; {new Date().getFullYear()} DS Lab Project</p>
-        </footer>
-    );
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Algorithms</a></li>
+              <li><a href="#">Data Structures</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h3>Contact</h3>
+            <p>chaudharimg@rknec.edu</p>
+            <p>sinhahv@rknec.edu</p>
+          </div>
+          <div className="footer-section">
+            <h3>Follow Us</h3>
+            <div className="social-links">
+              <a href="#" aria-label="GitHub">GitHub</a>
+              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+              <a href="#" aria-label="Twitter">Twitter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }
-export default Footer
+
+export default Footer;
