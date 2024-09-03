@@ -18,6 +18,9 @@ function Footer() {
             <h3>Contact</h3>
             <p>chaudharimg@rknec.edu</p>
             <p>sinhahv@rknec.edu</p>
+            <p>sardaks@rknec.edu</p>
+            <p>baitalwarhj@rknec.edu</p>
+            <p>shiledaraa@rknec.edu</p>
           </div>
         </div>
       </div>
