@@ -18,14 +18,9 @@ function Footer() {
             <h3>Contact</h3>
             <p>chaudharimg@rknec.edu</p>
             <p>sinhahv@rknec.edu</p>
-          </div>
-          <div className="footer-section">
-            <h3>Follow Us</h3>
-            <div className="social-links">
-              <a href="#" aria-label="GitHub">GitHub</a>
-              <a href="#" aria-label="LinkedIn">LinkedIn</a>
-              <a href="#" aria-label="Twitter">Twitter</a>
-            </div>
+            <p>sardaks@rknec.edu</p>
+            <p>baitalwarhj@rknec.edu</p>
+            <p>shiledaraa@rknec.edu</p>
           </div>
         </div>
       </div>
