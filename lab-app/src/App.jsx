@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -22,11 +23,11 @@ function App() {
         <section className="card">
           <h2>Featured Algorithms</h2>
           <ul>
-            <li>Sorting Algorithms (Merge Sort)</li>
-            <li>Linked Lists</li>
-            <li>Binary Search Tree</li>
-            <li>Hashing</li>
-            <li>Floyd's Algorithm</li>
+            <li><Link to="/merge-sort">Sorting Algorithms (Merge Sort)</Link></li>
+            <li><Link to="/linked-lists">Linked Lists</Link></li>
+            <li><Link to="/binary-search-tree">Binary Search Tree</Link></li>
+            <li><Link to="/hashing">Hashing</Link></li>
+            <li><Link to="/floyds-algorithm">Floyd's Algorithm</Link></li>
           </ul>
         </section>
 
