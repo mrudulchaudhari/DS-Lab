@@ -23,11 +23,11 @@ function App() {
         <section className="card">
           <h2>Featured Algorithms</h2>
           <ul>
-            <li><Link to="/merge-sort">Sorting Algorithms (Merge Sort)</Link></li>
-            <li><Link to="/linked-lists">Linked Lists</Link></li>
-            <li><Link to="/binary-search-tree">Binary Search Tree</Link></li>
-            <li><Link to="/hashing">Hashing</Link></li>
-            <li><Link to="/floyds-algorithm">Floyd's Algorithm</Link></li>
+            <li><Link to="/merge-sort" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/merge-sort", "_blank")}}>Sorting Algorithms (Merge Sort)</Link></li>
+            <li><Link to="/linked-lists" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/linked-lists", "_blank")}}>Linked Lists</Link></li>
+            <li><Link to="/binary-search-tree" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/binary-search-tree", "_blank")}}>Binary Search Tree</Link></li>
+            <li><Link to="/hashing" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/hashing", "_blank")}}>Hashing</Link></li>
+            <li><Link to="/floyds-algorithm" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/floyds-algorithm", "_blank")}}>Floyd's Algorithm</Link></li>
           </ul>
         </section>
 
