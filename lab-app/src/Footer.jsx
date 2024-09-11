@@ -9,8 +9,6 @@ function Footer() {
             <h3>Quick Links</h3>
             <ul>
               <li><a href="#">Home</a></li>
-              <li><a href="#">Algorithms</a></li>
-              <li><a href="#">Data Structures</a></li>
               <li><a href="#">About Us</a></li>
             </ul>
           </div>

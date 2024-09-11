@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -20,10 +21,7 @@ function Header() {
           <nav className={`main-nav ${isNavOpen ? 'active' : ''}`}>
             <ul>
               <li><a href="#" onClick={toggleNav}>Home</a></li>
-              <li><a href="#" onClick={toggleNav}>Algorithms</a></li>
-              <li><a href="#" onClick={toggleNav}>Data Structures</a></li>
-              <li><a href="#" onClick={toggleNav}>About</a></li>
-              <li><a href="#" onClick={toggleNav}>Contact</a></li>
+              <li><Link to="/about" onClick={toggleNav}>About</Link></li>         
             </ul>
           </nav>
         </div>

@@ -6,6 +6,7 @@ import LinkedListPage from './algorithms/LinkedList.jsx';
 import BinarySearchTreePage from './algorithms/BinarySearchTree.jsx';
 import HashingPage from './algorithms/Hashing.jsx';
 import FloydsAlgorithmPage from './algorithms/FloydsAlgorithm.jsx';
+import About from './About.jsx';
 
 function AppRoutes() {
 return (
@@ -17,6 +18,7 @@ return (
         <Route path="/binary-search-tree" element={<BinarySearchTreePage />} />
         <Route path="/hashing" element={<HashingPage />} />
         <Route path="/floyds-algorithm" element={<FloydsAlgorithmPage />} />
+        <Route path="/about" element={<About />} />
     </Routes>
     </Router>
 );
