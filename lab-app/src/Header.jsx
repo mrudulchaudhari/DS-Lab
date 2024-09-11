@@ -21,7 +21,7 @@ function Header() {
           <nav className={`main-nav ${isNavOpen ? 'active' : ''}`}>
             <ul>
               <li><a href="#" onClick={toggleNav}>Home</a></li>
-              <li><Link to="/about" onClick={toggleNav}>About</Link></li>         
+              <li><Link to="/about" onClick={toggleNav}>About</Link></li>        
             </ul>
           </nav>
         </div>
