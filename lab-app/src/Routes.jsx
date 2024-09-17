@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import App from './App';
-import MergeSortPage from './algorithms/MergeSort.jsx';
+import MergeSortPage from './algorithms/mergesort/MergeSort.jsx';
 import LinkedListPage from './algorithms/LinkedList.jsx';
 import BinarySearchTreePage from './algorithms/BinarySearchTree.jsx';
 import HashingPage from './algorithms/Hashing.jsx';
