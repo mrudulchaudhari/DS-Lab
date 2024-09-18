@@ -3,7 +3,7 @@ import React from 'react';
 function MergeSortPage() {
     return (
         <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
-            <header style={{ padding: '10px', backgroundColor: '#007BFF', color: 'white' }}>
+            <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
                 <h1>Merge Sort Algorithm</h1>
             </header>
 
@@ -19,15 +19,15 @@ function MergeSortPage() {
                 }}>
                     <h2>Contents</h2>
                     <ul style={{ listStyleType: 'none', padding: 0 }}>
-                        <li><a href="#aim" style={{ textDecoration: 'none', color: '#007BFF' }}>Aim</a></li>
-                        <li><a href="#overview" style={{ textDecoration: 'none', color: '#007BFF' }}>Overview</a></li>
-                        <li><a href="#recap" style={{ textDecoration: 'none', color: '#007BFF' }}>Recap</a></li>
-                        <li><a href="#pretest" style={{ textDecoration: 'none', color: '#007BFF' }}>Pretest</a></li>
-                        <li><a href="#collision-resolution" style={{ textDecoration: 'none', color: '#007BFF' }}>Collision Resolution</a></li>
-                        <li><a href="#quiz" style={{ textDecoration: 'none', color: '#007BFF' }}>Quiz</a></li>
-                        <li><a href="#posttest" style={{ textDecoration: 'none', color: '#007BFF' }}>Posttest</a></li>
-                        <li><a href="#further-reading" style={{ textDecoration: 'none', color: '#007BFF' }}>Further Reading/References</a></li>
-                        <li><a href="#feedback" style={{ textDecoration: 'none', color: '#007BFF' }}>Feedback</a></li>
+                        <li><a href="#aim" style={{ textDecoration: 'none', color: '#2c3e50' }}>Aim</a></li>
+                        <li><a href="#overview" style={{ textDecoration: 'none', color: '#2c3e50' }}>Overview</a></li>
+                        <li><a href="#recap" style={{ textDecoration: 'none', color: '#2c3e50' }}>Recap</a></li>
+                        <li><a href="#pretest" style={{ textDecoration: 'none', color: '#2c3e50' }}>Pretest</a></li>
+                        <li><a href="#collision-resolution" style={{ textDecoration: 'none', color: '#2c3e50' }}>Collision Resolution</a></li>
+                        <li><a href="#quiz" style={{ textDecoration: 'none', color: '#2c3e50' }}>Quiz</a></li>
+                        <li><a href="#posttest" style={{ textDecoration: 'none', color: '#2c3e50' }}>Posttest</a></li>
+                        <li><a href="#further-reading" style={{ textDecoration: 'none', color: '#2c3e50' }}>Further Reading/References</a></li>
+                        <li><a href="#feedback" style={{ textDecoration: 'none', color: '#2c3e50' }}>Feedback</a></li>
                     </ul>
                 </nav>
 
@@ -103,7 +103,7 @@ function MergeSortPage() {
             <footer style={{
                 textAlign: "center",
                 padding: "10px",
-                backgroundColor: "#007BFF",
+                backgroundColor: "#2c3e50",
                 color: "white",
                 marginTop: "20px"
             }}>
