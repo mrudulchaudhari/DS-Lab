@@ -26,7 +26,6 @@ return (
                         <li><a href="#collision-resolution" style={{ textDecoration: 'none', color: '#2c3e50' }}>Collision Resolution</a></li>
                         <li><a href="#quiz" style={{ textDecoration: 'none', color: '#2c3e50' }}>Quiz</a></li>
                         <li><a href="#posttest" style={{ textDecoration: 'none', color: '#2c3e50' }}>Posttest</a></li>
-                        <li><a href="#further-reading" style={{ textDecoration: 'none', color: '#2c3e50' }}>Further Reading/References</a></li>
                         <li><a href="#feedback" style={{ textDecoration: 'none', color: '#2c3e50' }}>Feedback</a></li>
                     </ul>
                 </nav>
