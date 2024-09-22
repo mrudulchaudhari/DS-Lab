@@ -23,8 +23,10 @@ function MergeSortPage() {
                         <li><a href="#overview" style={{ textDecoration: 'none', color: '#2c3e50' }}>Overview</a></li>
                         <li><a href="#recap" style={{ textDecoration: 'none', color: '#2c3e50' }}>Recap</a></li>
                         <li><a href="#pretest" style={{ textDecoration: 'none', color: '#2c3e50' }}>Pretest</a></li>
-                        <li><a href="#collision-resolution" style={{ textDecoration: 'none', color: '#2c3e50' }}>Collision Resolution</a></li>
+                        <li><a href="#Divide-Conquer" style={{ textDecoration: 'none', color: '#2c3e50' }}>Divide and Conquer</a></li>
+                        <li><a href="#Algorithm/implementation" style={{ textDecoration: 'none', color: '#2c3e50' }}>Algorithm/implementation</a></li>
                         <li><a href="#quiz" style={{ textDecoration: 'none', color: '#2c3e50' }}>Quiz</a></li>
+                        <li><a href="#Analysis" style={{ textDecoration: 'none', color: '#2c3e50' }}>Analysis</a></li>
                         <li><a href="#posttest" style={{ textDecoration: 'none', color: '#2c3e50' }}>Posttest</a></li>
                         <li><a href="#further-reading" style={{ textDecoration: 'none', color: '#2c3e50' }}>Further Reading/References</a></li>
                         <li><a href="#feedback" style={{ textDecoration: 'none', color: '#2c3e50' }}>Feedback</a></li>
@@ -63,14 +65,24 @@ function MergeSortPage() {
                             <p>Before we dive deeper into Merge Sort, take this quick pretest to assess your understanding of sorting algorithms.</p>
                         </section>
 
-                        <section id="collision-resolution">
-                            <h2>Collision Resolution</h2>
-                            <p>This section discusses how Merge Sort handles data collisions during the merging process to ensure a stable sort.</p>
+                        <section id="Divide-Conquer">
+                            <h2>Divide and Conquer</h2>
+                            <p>This section discusses how Merge Sort works on divide and conquer rule.</p>
+                        </section>
+
+                        <section id="Algorithm/implementation">
+                            <h2>Algorithm/implementation</h2>
+                            <p>This section discusses algorithm and implementation process of Merge Sort .</p>
                         </section>
 
                         <section id="quiz">
                             <h2>Quiz</h2>
                             <p>Test your knowledge on Merge Sort with this short quiz. Check your understanding of the algorithm and its complexities.</p>
+                        </section>
+
+                        <section id="Analysis">
+                            <h2>Analysis</h2>
+                            <p>This section provides the overall analysis of the experiment and quizes performed.</p>
                         </section>
 
                         <section id="posttest">
