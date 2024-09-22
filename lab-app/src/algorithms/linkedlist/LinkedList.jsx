@@ -76,10 +76,10 @@ function LinkedListPage() {
             <section id="further-reading">
               <h2>Further Reading/References</h2>
               <p>For more detailed information on Linked Lists, refer to the following resources:</p>
-              {/* <ul>
-                <li><a href="https://www.w3schools.com/dsa/dsa_data_linkedlist.php">W3-schools - Linked List</a></li>
-                <li><a href="https://www.geeksforgeeks.org/data-structures/linked-list/">GeeksforGeeks - Linked List</a></li>
-              </ul> */}
+              <ul>
+                <li><a href="https://www.w3schools.com/dsa/dsa_theory_linkedlists.php">W3-schools - Linked List</a></li>
+                <li><a href="https://www.geeksforgeeks.org/linked-list-in-c/">GeeksforGeeks - Linked List in C</a></li>
+              </ul>
             </section>
 
             <section id="quiz">
