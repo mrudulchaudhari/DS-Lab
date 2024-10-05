@@ -1,17 +1,8 @@
-# DS-Lab
+# React + Vite
 
-## Name - Mrudul Chaudhari
-## Algorithm - Linked Lists
-## Role - Leader
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Name - Homeshwari Baitalwar
-## Algorithm - Hashing using Quadratic Probing
+Currently, two official plugins are available:
 
-## Name - Khushi Sarda
-## Algorithm - Binary search tree (Algorithm)
-
-## Name - Adhishree Shiledar
-## Algorithm - Sorting(Merge Sort)
-
-## Name - Himanshu Sinha
-## Algoritm - Floyd's APSP (Graph)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
