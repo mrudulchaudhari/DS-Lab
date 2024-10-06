@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MergeSortPage() {
+function MergeSort() {
     return (
         <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
             <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
@@ -126,4 +126,4 @@ function MergeSortPage() {
     );
 }
 
-export default MergeSortPage;
+export default MergeSort;

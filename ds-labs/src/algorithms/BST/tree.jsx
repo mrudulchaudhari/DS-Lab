@@ -1,6 +1,6 @@
 import React from 'react';
 
-function BSTPage() {
+function Tree() {
 return (
         <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
             <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
@@ -103,4 +103,4 @@ return (
 );
 }
 
-export default BSTPage;
+export default Tree;
