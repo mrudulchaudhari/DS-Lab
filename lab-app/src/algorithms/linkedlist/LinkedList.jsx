@@ -242,10 +242,17 @@ function LinkedListPage() {
             <section id="further-reading">
               <h2>Further Reading/References</h2>
               <p>For more detailed information on Linked Lists, refer to the following resources:</p>
+<<<<<<< HEAD
               <ul>
                 <li><a href="https://www.geeksforgeeks.org/data-structures/linked-list/" target="_blank" rel="noopener noreferrer">GeeksforGeeks - Linked List</a></li>
                 <li><a href="https://www.coursera.org/lecture/data-structures/singly-linked-lists-kHhgK" target="_blank" rel="noopener noreferrer">Coursera - Singly Linked Lists</a></li>
               </ul>
+=======
+              {/* <ul>
+                <li><a href="https://www.w3schools.com/dsa/dsa_data_linkedlist.php">W3-schools - Linked List</a></li>
+                <li><a href="https://www.geeksforgeeks.org/data-structures/linked-list/">GeeksforGeeks - Linked List</a></li>
+              </ul> */}
+>>>>>>> parent of 24fd71a (updated some links)
             </section>
 
             <section id="quiz">
