@@ -21,15 +21,15 @@ function App() {
         </section>
 
         <section className="card">
-          <h2>Featured Algorithms</h2>
-          <ul>
-            <li><Link to="/merge-sort" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/merge-sort", "_blank")}}>Sorting Algorithms (Merge Sort)</Link></li>
-            <li><Link to="/linked-lists" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/linked-lists", "_blank")}}>Linked Lists</Link></li>
-            <li><Link to="/binary-search-tree" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/binary-search-tree", "_blank")}}>Binary Search Tree</Link></li>
-            <li><Link to="/hashing" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/hashing", "_blank")}}>Hashing</Link></li>
-            <li><Link to="/floyds-algorithm" target="_blank" rel="noopener noreferrer" onClick={(e) => {e.preventDefault(); window.open("/floyds-algorithm", "_blank")}}>Floyd's Algorithm</Link></li>
-          </ul>
-        </section>
+  <h2>Featured Algorithms</h2>
+  <ul>
+    <li><a href="/merge-sort" target="_blank" rel="noopener noreferrer">Sorting Algorithms (Merge Sort)</a></li>
+    <li><a href="/linked-lists" target="_blank" rel="noopener noreferrer">Linked Lists</a></li>
+    <li><a href="/binary-search-tree" target="_blank" rel="noopener noreferrer">Binary Search Tree</a></li>
+    <li><a href="/hashing" target="_blank" rel="noopener noreferrer">Hashing</a></li>
+    <li><a href="/floyds-algorithm" target="_blank" rel="noopener noreferrer">Floyd's Algorithm</a></li>
+  </ul>
+</section>
 
         <section className="card">
           <h2>Why Data Structures Matter</h2>
