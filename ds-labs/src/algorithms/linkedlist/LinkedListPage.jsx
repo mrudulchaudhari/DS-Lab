@@ -1,37 +1,193 @@
-import React from 'react';
-// In a real project, you would import questions like this:
-// import { pretestQuestions, quizQuestions, posttestQuestions } from './questions/linkedListQuestions';
+import React, { useState } from 'react';
 
-// For this environment, we'll define the questions here:
-const pretestQuestions = [
+const allQuestions = [
   {
-    question: "What is a linked list?",
-    options: ["An array of elements", "A collection of nodes", "A type of tree", "A database structure"],
-    correctAnswer: "A collection of nodes"
+    title: "Pretest",
+    questions: [
+      {
+        question: "What is a linked list?",
+        options: ["An array of elements", "A collection of nodes", "A type of tree", "A database structure"],
+        correctAnswer: "A collection of nodes"
+      },
+      {
+        question: "In a singly linked list, each node contains:",
+        options: ["Only data", "Data and a pointer to the previous node", "Data and a pointer to the next node", "Two pointers"],
+        correctAnswer: "Data and a pointer to the next node"
+      },
+      {
+        question: "What is the main advantage of a linked list over an array?",
+        options: ["Faster access to elements", "Dynamic size", "Less memory usage", "Simpler implementation"],
+        correctAnswer: "Dynamic size"
+      },
+      {
+        question: "Which of the following is NOT a type of linked list?",
+        options: ["Singly linked list", "Doubly linked list", "Circular linked list", "Binary linked list"],
+        correctAnswer: "Binary linked list"
+      },
+      {
+        question: "What is the time complexity of accessing an element in a linked list?",
+        options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+        correctAnswer: "O(n)"
+      }
+    ]
   },
-  // ... other pretest questions
+  {
+    title: "Quiz",
+    questions: [
+      {
+        question: "What is the time complexity of inserting an element at the beginning of a linked list?",
+        options: ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+        correctAnswer: "O(1)"
+      },
+      {
+        question: "In a doubly linked list, each node has:",
+        options: ["One pointer", "Two pointers", "Three pointers", "No pointers"],
+        correctAnswer: "Two pointers"
+      },
+      {
+        question: "Which operation is more efficient in a linked list compared to an array?",
+        options: ["Random access", "Insertion at the beginning", "Sorting", "Binary search"],
+        correctAnswer: "Insertion at the beginning"
+      },
+      {
+        question: "What is a sentinel node in a linked list?",
+        options: ["The first node", "The last node", "A dummy node", "A node with maximum value"],
+        correctAnswer: "A dummy node"
+      },
+      {
+        question: "In a circular linked list:",
+        options: ["The first node points to null", "The last node points to null", "The last node points to the first node", "There are no pointers"],
+        correctAnswer: "The last node points to the first node"
+      }
+    ]
+  },
+  {
+    title: "Posttest",
+    questions: [
+      {
+        question: "What is the main advantage of a doubly linked list over a singly linked list?",
+        options: ["Faster insertion", "Bidirectional traversal", "Less memory usage", "Faster searching"],
+        correctAnswer: "Bidirectional traversal"
+      },
+      {
+        question: "Which of the following applications would benefit most from using a linked list?",
+        options: ["Implementing a stack", "Binary search", "Random access to elements", "Storing a fixed-size dataset"],
+        correctAnswer: "Implementing a stack"
+      },
+      {
+        question: "What is the space complexity of a singly linked list with n elements?",
+        options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+        correctAnswer: "O(n)"
+      },
+      {
+        question: "In which scenario would you prefer an array over a linked list?",
+        options: ["Frequent insertions at the beginning", "Dynamic size requirements", "Random access to elements", "Memory is severely limited"],
+        correctAnswer: "Random access to elements"
+      },
+      {
+        question: "What is a self-organizing list?",
+        options: ["A list that sorts itself automatically", "A list that deletes unused elements", "A list that moves frequently accessed elements to the front", "A list that balances itself like a tree"],
+        correctAnswer: "A list that moves frequently accessed elements to the front"
+      }
+    ]
+  }
 ];
 
-const quizQuestions = [
-  {
-    question: "What is the time complexity of inserting an element at the beginning of a linked list?",
-    options: ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
-    correctAnswer: "O(1)"
-  },
-  // ... other quiz questions
-];
+const QuestionSet = ({ questionSet }) => {
+  const [userAnswers, setUserAnswers] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  const [score, setScore] = useState(0);
 
-const posttestQuestions = [
-  {
-    question: "What is the main advantage of a doubly linked list over a singly linked list?",
-    options: ["Faster insertion", "Bidirectional traversal", "Less memory usage", "Faster searching"],
-    correctAnswer: "Bidirectional traversal"
-  },
-  // ... other posttest questions
-];
+  const handleAnswerChange = (questionIndex, answer) => {
+    setUserAnswers(prev => ({
+      ...prev,
+      [questionIndex]: answer
+    }));
+  };
 
-const QuestionSet = ({ questions, title }) => {
-  // ... QuestionSet component implementation (same as before)
+  const handleSubmit = () => {
+    if (Object.keys(userAnswers).length !== questionSet.questions.length) {
+      alert("Please answer all questions before submitting.");
+      return;
+    }
+    let newScore = 0;
+    questionSet.questions.forEach((q, index) => {
+      if (userAnswers[index] === q.correctAnswer) {
+        newScore++;
+      }
+    });
+    setScore(newScore);
+    setSubmitted(true);
+  };
+
+  return (
+    <div>
+      <h3>{questionSet.title}</h3>
+      {questionSet.questions.map((q, index) => (
+        <div key={index} style={{ marginBottom: '15px' }}>
+          <p><strong>{index + 1}. {q.question}</strong></p>
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
+            {q.options.map((option, optionIndex) => (
+              <li key={optionIndex}>
+                <label style={{
+                  color: submitted
+                    ? userAnswers[index] === option
+                      ? option === q.correctAnswer
+                        ? 'green'
+                        : 'red'
+                      : 'inherit'
+                    : 'inherit'
+                }}>
+                  <input
+                    type="radio"
+                    name={`question-${index}`}
+                    value={option}
+                    onChange={() => handleAnswerChange(index, option)}
+                    disabled={submitted}
+                  />
+                  {option}
+                </label>
+              </li>
+            ))}
+          </ul>
+          {submitted && userAnswers[index] !== q.correctAnswer && (
+            <p style={{ color: 'green' }}>Correct answer: {q.correctAnswer}</p>
+          )}
+        </div>
+      ))}
+      {!submitted && (
+        <button onClick={handleSubmit} style={{
+          padding: '10px 20px',
+          backgroundColor: '#2c3e50',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}>
+          Submit
+        </button>
+      )}
+      {submitted && (
+        <div>
+          <h4>Your Score: {score} out of {questionSet.questions.length}</h4>
+          <button onClick={() => {
+            setSubmitted(false);
+            setUserAnswers({});
+            setScore(0);
+          }} style={{
+            padding: '10px 20px',
+            backgroundColor: '#2c3e50',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer'
+          }}>
+            Retake Quiz
+          </button>
+        </div>
+      )}
+    </div>
+  );
 };
 
 function LinkedListPage() {
@@ -100,7 +256,7 @@ function LinkedListPage() {
             <section id="pretest">
               <h2>Pretest</h2>
               <p>Before we dive deeper into Linked Lists, take this quick pretest to assess your understanding:</p>
-              <QuestionSet questions={pretestQuestions} title="Pretest" />
+              <QuestionSet questionSet={allQuestions[0]} />
             </section>
 
             <section id="implementation">
@@ -126,13 +282,13 @@ function LinkedListPage() {
             <section id="quiz">
               <h2>Quiz</h2>
               <p>Test your knowledge on Linked Lists with this short quiz:</p>
-              <QuestionSet questions={quizQuestions} title="Quiz" />
+              <QuestionSet questionSet={allQuestions[1]} />
             </section>
 
             <section id="posttest">
               <h2>Posttest</h2>
               <p>After completing this section, please take the posttest to evaluate what you have learned about Linked Lists:</p>
-              <QuestionSet questions={posttestQuestions} title="Posttest" />
+              <QuestionSet questionSet={allQuestions[2]} />
             </section>
 
             <section id="code">
