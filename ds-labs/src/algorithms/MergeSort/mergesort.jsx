@@ -33,7 +33,8 @@ const pretestQuestions = [
               "When the array has an odd number of elements."],
     correctAnswer: "When the array has only one element."
   },
-  
+
+
 ];
 
 const quizQuestions = [
@@ -67,11 +68,17 @@ const posttestQuestions = [
 ];
 
 const QuestionSet = ({ questions, title }) => {
-  // Implement QuestionSet component logic here (unchanged)
+  // Implement QuestionSet component logic here
+  return (
+    <div>
+      <h3>{title}</h3>
+      {/* Render questions and options here */}
+    </div>
+  );
 };
 
 function MergeSortPage() {
-  const [currentSection, setCurrentSection] = useState('aim'); // Track current section
+  const [currentSection, setCurrentSection] = useState('aim');
 
   const handleSectionClick = (sectionId) => {
     setCurrentSection(sectionId);
@@ -90,12 +97,19 @@ function MergeSortPage() {
           </section>
         );
       case 'overview':
-        // ... overview content
-        break;
+        return (
+          <section id="overview">
+            <h2>Overview</h2>
+            {/* Add overview content */}
+          </section>
+        );
       case 'recap':
-        // ... recap content
-        break;
-      // ... other sections
+        return (
+          <section id="recap">
+            <h2>Recap</h2>
+            {/* Add recap content */}
+          </section>
+        );
       case 'pretest':
         return (
           <section id="pretest">
@@ -104,15 +118,23 @@ function MergeSortPage() {
               Before we dive deeper into Merge Sort, take this quick pretest to
               assess your understanding of sorting algorithms.
             </p>
-            <QuestionSet questions={pretestQuestions} />
+            <QuestionSet questions={pretestQuestions} title="Pretest Questions" />
           </section>
         );
       case 'Divide-Conquer':
-        // ... Divide and Conquer content
-        break;
+        return (
+          <section id="Divide-Conquer">
+            <h2>Divide and Conquer</h2>
+            {/* Add Divide and Conquer content */}
+          </section>
+        );
       case 'Algorithm/implementation':
-        // ... Algorithm/implementation content
-        break;
+        return (
+          <section id="Algorithm/implementation">
+            <h2>Algorithm/Implementation</h2>
+            {/* Add Algorithm/implementation content */}
+          </section>
+        );
       case 'quiz':
         return (
           <section id="quiz">
@@ -121,12 +143,16 @@ function MergeSortPage() {
               Test your knowledge on Merge Sort with this short quiz. Check your
               understanding of the algorithm and its complexities.
             </p>
-            <QuestionSet questions={quizQuestions} />
+            <QuestionSet questions={quizQuestions} title="Quiz Questions" />
           </section>
         );
       case 'Analysis':
-        // ... Analysis content
-        break;
+        return (
+          <section id="Analysis">
+            <h2>Analysis</h2>
+            {/* Add Analysis content */}
+          </section>
+        );
       case 'posttest':
         return (
           <section id="posttest">
@@ -135,15 +161,23 @@ function MergeSortPage() {
               After completing this section, please take the posttest to evaluate
               what you have learned about Merge Sort.
             </p>
-            <QuestionSet questions={posttestQuestions} />
+            <QuestionSet questions={posttestQuestions} title="Posttest Questions" />
           </section>
         );
       case 'further-reading':
-        // ... further reading content
-        break;
+        return (
+          <section id="further-reading">
+            <h2>Further Reading/References</h2>
+            {/* Add further reading content */}
+          </section>
+        );
       case 'feedback':
-        // ... feedback content
-        break;
+        return (
+          <section id="feedback">
+            <h2>Feedback</h2>
+            {/* Add feedback content */}
+          </section>
+        );
       default:
         return null;
     }
@@ -167,17 +201,20 @@ function MergeSortPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li><a href="#aim" style={{ textDecoration: 'none', color: '#2c3e50' }}>Aim</a></li>
-            <li><a href="#overview" style={{ textDecoration: 'none', color: '#2c3e50' }}>Overview</a></li>
-            <li><a href="#recap" style={{ textDecoration: 'none', color: '#2c3e50' }}>Recap</a></li>
-            <li><a href="#pretest" style={{ textDecoration: 'none', color: '#2c3e50' }}>Pretest</a></li>
-            <li><a href="#Divide-Conquer" style={{ textDecoration: 'none', color: '#2c3e50' }}>Divide and Conquer</a></li>
-            <li><a href="#Algorithm/implementation" style={{ textDecoration: 'none', color: '#2c3e50' }}>Algorithm/implementation</a></li>
-            <li><a href="#quiz" style={{ textDecoration: 'none', color: '#2c3e50' }}>Quiz</a></li>
-            <li><a href="#Analysis" style={{ textDecoration: 'none', color: '#2c3e50' }}>Analysis</a></li>
-            <li><a href="#posttest" style={{ textDecoration: 'none', color: '#2c3e50' }}>Posttest</a></li>
-            <li><a href="#further-reading" style={{ textDecoration: 'none', color: '#2c3e50' }}>Further Reading/References</a></li>
-            <li><a href="#feedback" style={{ textDecoration: 'none', color: '#2c3e50' }}>Feedback</a></li>
+            {['aim', 'overview', 'recap', 'pretest', 'Divide-Conquer', 'Algorithm/implementation', 'quiz', 'Analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
+              <li key={section}>
+                <a 
+                  href={`#${section}`} 
+                  style={{ textDecoration: 'none', color: '#2c3e50' }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSectionClick(section);
+                  }}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1).replace('-', ' ')}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
