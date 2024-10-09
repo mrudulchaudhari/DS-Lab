@@ -191,6 +191,107 @@ const QuestionSet = ({ questionSet }) => {
 };
 
 function LinkedListPage() {
+  const [currentSection, setCurrentSection] = useState('aim');
+
+  const handleSectionClick = (sectionId) => {
+    setCurrentSection(sectionId);
+  };
+
+  const renderSectionContent = (sectionId) => {
+    switch (sectionId) {
+      case 'aim':
+        return (
+          <section id="aim">
+            <h2>Aim</h2>
+            <p>The aim of this page is to provide a comprehensive understanding of Linked Lists, their implementation, and applications.</p>
+          </section>
+        );
+      case 'overview':
+        return (
+          <section id="overview">
+            <h2>Overview</h2>
+            <p>A Linked List is a linear data structure in which elements are stored in nodes. Each node contains a data field and a reference (or link) to the next node in the sequence. Linked Lists have the following properties:</p>
+            <ul>
+              <li>Elements are linked using pointers</li>
+              <li>Each node contains a data field and a reference to the next node</li>
+              <li>The last node typically points to null</li>
+            </ul>
+          </section>
+        );
+      case 'recap':
+        return (
+          <section id="recap">
+            <h2>Recap</h2>
+            <p>In previous lessons, we explored various data structures. Linked Lists are significant for their flexibility in memory allocation and efficient insertion and deletion operations.</p>
+          </section>
+        );
+      case 'pretest':
+        return (
+          <section id="pretest">
+            <h2>Pretest</h2>
+            <p>Before we dive deeper into Linked Lists, take this quick pretest to assess your understanding:</p>
+            <QuestionSet questionSet={allQuestions[0]} />
+          </section>
+        );
+      case 'implementation':
+        return (
+          <section id="implementation">
+            <h2>Implementation</h2>
+            <p>This section discusses how to implement a Linked List, including node creation, insertion, deletion, and traversal algorithms.</p>
+            <p>There are 3 major implementations with each having their own applications and their own advantages:</p>
+            <ol>
+              <li><h3>Linear Linked List</h3></li>
+              <li><h3>Doubly Linked List</h3></li>
+              <li><h3>Circular Linked List</h3></li>
+            </ol>
+          </section>
+        );
+      case 'further-reading':
+        return (
+          <section id="further-reading">
+            <h2>Further Reading/References</h2>
+            <p>For more detailed information on Linked Lists, refer to the following resources:</p>
+            <ul>
+              <li><a href="https://www.w3schools.com/dsa/dsa_theory_linkedlists.php">W3-schools - Linked List</a></li>
+              <li><a href="https://www.geeksforgeeks.org/linked-list-in-c/">GeeksforGeeks - Linked List in C</a></li>
+            </ul>
+          </section>
+        );
+      case 'quiz':
+        return (
+          <section id="quiz">
+            <h2>Quiz</h2>
+            <p>Test your knowledge on Linked Lists with this short quiz:</p>
+            <QuestionSet questionSet={allQuestions[1]} />
+          </section>
+        );
+      case 'posttest':
+        return (
+          <section id="posttest">
+            <h2>Posttest</h2>
+            <p>After completing this section, please take the posttest to evaluate what you have learned about Linked Lists:</p>
+            <QuestionSet questionSet={allQuestions[2]} />
+          </section>
+        );
+      case 'code':
+        return (
+          <section id="code">
+            <h2>Code</h2>
+            <p>We will have a sample code for this in C, C++, Java and Python for this.</p>
+          </section>
+        );
+      case 'feedback':
+        return (
+          <section id="feedback">
+            <h2>Feedback</h2>
+            <p>Your feedback is valuable! Please let us know your thoughts on this lesson about Linked Lists.</p>
+          </section>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
       <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
@@ -209,16 +310,20 @@ function LinkedListPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li><a href="#aim" style={{ textDecoration: 'none', color: '#2c3e50' }}>Aim</a></li>
-            <li><a href="#overview" style={{ textDecoration: 'none', color: '#2c3e50' }}>Overview</a></li>
-            <li><a href="#recap" style={{ textDecoration: 'none', color: '#2c3e50' }}>Recap</a></li>
-            <li><a href="#pretest" style={{ textDecoration: 'none', color: '#2c3e50' }}>Pretest</a></li>
-            <li><a href="#implementation" style={{ textDecoration: 'none', color: '#2c3e50' }}>Implementation</a></li>
-            <li><a href="#further-reading" style={{ textDecoration: 'none', color: '#2c3e50' }}>Reading/References</a></li>
-            <li><a href="#quiz" style={{ textDecoration: 'none', color: '#2c3e50' }}>Quiz</a></li>
-            <li><a href="#posttest" style={{ textDecoration: 'none', color: '#2c3e50' }}>Posttest</a></li>
-            <li><a href="#code" style={{ textDecoration: 'none', color: '#2c3e50' }}>Code</a></li>
-            <li><a href="#feedback" style={{ textDecoration: 'none', color: '#2c3e50' }}>Feedback</a></li>
+            {['aim', 'overview', 'recap', 'pretest', 'implementation', 'further-reading', 'quiz', 'posttest', 'code', 'feedback'].map((section) => (
+              <li key={section}>
+                <a 
+                  href={`#${section}`} 
+                  style={{ textDecoration: 'none', color: '#2c3e50' }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSectionClick(section);
+                  }}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1).replace('-', ' ')}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -233,73 +338,7 @@ function LinkedListPage() {
             marginLeft: 'auto',
             marginRight: 'auto'
           }}>
-            <section id="aim">
-              <h2>Aim</h2>
-              <p>The aim of this page is to provide a comprehensive understanding of Linked Lists, their implementation, and applications.</p>
-            </section>
-
-            <section id="overview">
-              <h2>Overview</h2>
-              <p>A Linked List is a linear data structure in which elements are stored in nodes. Each node contains a data field and a reference (or link) to the next node in the sequence. Linked Lists have the following properties:</p>
-              <ul>
-                <li>Elements are linked using pointers</li>
-                <li>Each node contains a data field and a reference to the next node</li>
-                <li>The last node typically points to null</li>
-              </ul>
-            </section>
-
-            <section id="recap">
-              <h2>Recap</h2>
-              <p>In previous lessons, we explored various data structures. Linked Lists are significant for their flexibility in memory allocation and efficient insertion and deletion operations.</p>
-            </section>
-
-            <section id="pretest">
-              <h2>Pretest</h2>
-              <p>Before we dive deeper into Linked Lists, take this quick pretest to assess your understanding:</p>
-              <QuestionSet questionSet={allQuestions[0]} />
-            </section>
-
-            <section id="implementation">
-              <h2>Implementation</h2>
-              <p>This section discusses how to implement a Linked List, including node creation, insertion, deletion, and traversal algorithms.</p>
-              <p>There are 3 major implementations with each having their own applications and their own advantages:</p>
-              <ol>
-                <li><h3>Linear Linked List</h3></li>
-                <li><h3>Doubly Linked List</h3></li>
-                <li><h3>Circular Linked List</h3></li>
-              </ol>
-            </section>
-
-            <section id="further-reading">
-              <h2>Further Reading/References</h2>
-              <p>For more detailed information on Linked Lists, refer to the following resources:</p>
-              <ul>
-                <li><a href="https://www.w3schools.com/dsa/dsa_theory_linkedlists.php">W3-schools - Linked List</a></li>
-                <li><a href="https://www.geeksforgeeks.org/linked-list-in-c/">GeeksforGeeks - Linked List in C</a></li>
-              </ul>
-            </section>
-
-            <section id="quiz">
-              <h2>Quiz</h2>
-              <p>Test your knowledge on Linked Lists with this short quiz:</p>
-              <QuestionSet questionSet={allQuestions[1]} />
-            </section>
-
-            <section id="posttest">
-              <h2>Posttest</h2>
-              <p>After completing this section, please take the posttest to evaluate what you have learned about Linked Lists:</p>
-              <QuestionSet questionSet={allQuestions[2]} />
-            </section>
-
-            <section id="code">
-              <h2>Code</h2>
-              <p>We will have a sample code for this in C, C++, Java and Python for this.</p>
-            </section>
-
-            <section id="feedback">
-              <h2>Feedback</h2>
-              <p>Your feedback is valuable! Please let us know your thoughts on this lesson about Linked Lists.</p>
-            </section>
+            {renderSectionContent(currentSection)}
           </div>
         </main>
       </div>
@@ -311,7 +350,7 @@ function LinkedListPage() {
         color: "white",
         marginTop: "20px"
       }}>
-        <p>© 2024 Linked List Education</p>
+        &copy; 2024 Linked List Learning Platform
       </footer>
     </div>
   );
