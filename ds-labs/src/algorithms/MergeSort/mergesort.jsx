@@ -53,8 +53,44 @@ const allQuestions = [
           "By using a heap to store the subarrays."
         ],
         correctAnswer: "By comparing elements one by one and placing them in the correct order."
+      },
+      {
+        question: "What is the space complexity of merge sort? ",
+        options: [
+          "O(n)", "O(n log n).","O(n^2)","O(1)"
+        ],
+        correctAnswer: "O(n)"
+      },
+      {
+        question: "Merge sort can be implemented in-place. True or false?",
+        options: [
+          "True",
+          "False"
+          
+        ],
+        correctAnswer: "False"
+      },
+      {
+        question: "In which scenario would merge sort be a good choice over other sorting algorithms?",
+        options: [
+          "When the data is already partially sorted.",
+          "When the data is small.",
+          "When the data is large and needs to be sorted stably.",
+          "When the data is large and needs to be sorted in-place."
+        ],
+        correctAnswer: "When the data is large and needs to be sorted stably."
+      },
+      {
+        question: "What is the best-case time complexity of merge sort?",
+        options: [
+          "O(n)",
+          "O(n log n).",
+          "O(n^2)",
+          "O(1)"
+        ],
+        correctAnswer: "O(n)"
       }
-      // ... other quiz questions
+      
     ]
   },
   {
