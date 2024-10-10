@@ -394,11 +394,10 @@ function BSTPage() {
         color: "white",
         marginTop: "20px"
       }}>
-        &copy; 2024 Binary Search Tree 
+        &copy; 2024 Binary Search Tree Learning Platform
       </footer>
     </div>
     );
 }
-
 
 export default BSTPage;
