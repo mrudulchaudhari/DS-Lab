@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import App from './App';
 import MergeSort from './algorithms/MergeSort/mergesort.jsx';
 import LinkedListPage from './algorithms/linkedlist/LinkedListPage.jsx';
-import Tree from './algorithms/BST/tree.jsx';
+import Tree from './algorithms/binarysearchtree/tree.jsx';
 import HashingPage from './algorithms/Hashing/hashing.jsx';
 import FloydsAlgorithmPage from './algorithms/Floyd/floyd.jsx';
 import About from './About.jsx';
