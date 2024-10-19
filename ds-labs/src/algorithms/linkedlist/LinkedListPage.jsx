@@ -343,12 +343,65 @@ function LinkedListPage() {
       case 'further-reading':
         return (
           <section id="further-reading">
-            <h2>Further Reading/References</h2>
-            <p>For more detailed information on Linked Lists, refer to the following resources:</p>
-            <ul>
-              <li><a href="https://www.w3schools.com/dsa/dsa_theory_linkedlists.php">W3-schools - Linked List</a></li>
-              <li><a href="https://www.geeksforgeeks.org/linked-list-in-c/">GeeksforGeeks - Linked List in C</a></li>
-            </ul>
+            <h1>Further Reading/References</h1>
+    
+    <h2>Linked List vs Array Comparison</h2>
+    <table>
+        <tr>
+            <th>Aspect</th>
+            <th>Linked List</th>
+            <th>Array</th>
+        </tr>
+        <tr>
+            <td>Memory Allocation</td>
+            <td>Dynamic (can grow/shrink)</td>
+            <td>Static (fixed size)</td>
+        </tr>
+        <tr>
+            <td>Insertion/Deletion</td>
+            <td>Efficient (O(1) at beginning/end)</td>
+            <td>Inefficient (may require shifting elements)</td>
+        </tr>
+        <tr>
+            <td>Random Access</td>
+            <td>Inefficient (O(n))</td>
+            <td>Efficient (O(1))</td>
+        </tr>
+        <tr>
+            <td>Memory Usage</td>
+            <td>Extra memory for pointers</td>
+            <td>No extra overhead</td>
+        </tr>
+        <tr>
+            <td>Implementation</td>
+            <td>More complex</td>
+            <td>Simpler</td>
+        </tr>
+        <tr>
+            <td>Cache Performance</td>
+            <td>Poor (non-contiguous memory)</td>
+            <td>Good (contiguous memory)</td>
+        </tr>
+    </table>
+
+    <p>Key Takeaways:</p>
+    <ul>
+        <li>Use linked lists when frequent insertions/deletions are needed, especially at the beginning or end of the list.</li>
+        <li>Use arrays when random access is important or when working with a fixed number of elements.</li>
+        <li>Consider the trade-offs between memory usage and performance based on your specific use case.</li>
+    </ul>
+
+    <h2>Video Explanation in C++</h2>
+    <div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/A7eUPXUR9H8?si=ntiyDWkcyUqMpsn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <h2>Additional Resources</h2>
+    <p>For more detailed information on Linked Lists, refer to the following resources:</p>
+    <ul>
+        <li><a href="https://www.w3schools.com/dsa/dsa_theory_linkedlists.php">W3schools - Linked List</a></li>
+        <li><a href="https://www.geeksforgeeks.org/linked-list-in-c/">GeeksforGeeks - Linked List in C</a></li>
+    </ul>
           </section>
         );
       case 'quiz':
