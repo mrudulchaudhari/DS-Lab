@@ -204,7 +204,8 @@ function LinkedListPage() {
         return (
           <section id="aim">
             <h2>Aim</h2>
-            <p>The aim of this page is to provide a comprehensive understanding of Linked Lists, their implementation, and applications.</p>
+            <p>To develop an interactive visualization tool that demonstrates the structure and operations of linked lists,
+               enhancing understanding through visual representation and reinforcing knowledge with integrated quizzes.</p>
           </section>
         );
       case 'overview':
@@ -223,7 +224,18 @@ function LinkedListPage() {
         return (
           <section id="recap">
             <h2>Recap</h2>
-            <p>In previous lessons, we explored various data structures. Linked Lists are significant for their flexibility in memory allocation and efficient insertion and deletion operations.</p>
+            <p>In our theoretical lectures, we've explored a variety of fundamental data structures,
+               each with its unique characteristics and applications. We've dedicated specific attention
+                to Linked Lists, examining their structure, types, and operations in depth. 
+                Linked Lists stand out for their dynamic memory allocation and efficient insertion and deletion capabilities, 
+                especially when compared to arrays. We've also discussed other linear data structures like stacks and queues, 
+                as well as more complex structures such as trees and graphs.</p>
+            <p>In our theoretical lectures, we've explored a variety of fundamental data structures, 
+              each with its unique characteristics and applications. We've dedicated specific attention to 
+              Linked Lists, examining their structure, types, and operations in depth. Linked Lists stand out 
+              for their dynamic memory allocation and efficient insertion and deletion capabilities, 
+              especially when compared to arrays. We've also discussed other linear data structures like 
+              stacks and queues, as well as more complex structures such as trees and graphs.</p>
           </section>
         );
       case 'pretest':
@@ -237,14 +249,87 @@ function LinkedListPage() {
       case 'implementation':
         return (
           <section id="implementation">
-            <h2>Implementation</h2>
-            <p>This section discusses how to implement a Linked List, including node creation, insertion, deletion, and traversal algorithms.</p>
-            <p>There are 3 major implementations with each having their own applications and their own advantages:</p>
-            <ol>
-              <li><h3>Linear Linked List</h3></li>
-              <li><h3>Doubly Linked List</h3></li>
-              <li><h3>Circular Linked List</h3></li>
-            </ol>
+            <h1>Implementation</h1>
+    <p>This section discusses how to implement a Linked List, including node creation, insertion, deletion, and traversal algorithms.</p>
+    <p>There are 3 major implementations with each having their own applications and their own advantages:</p>
+    
+    <div class="implementation-type">
+        <h2>1. Linear Linked List (Singly Linked List)</h2>
+        <ul>
+            <li>Structure: Each node contains data and a single pointer to the next node.</li>
+            <li>Last node points to null, indicating the end of the list.</li>
+            <li>Traversal: Only possible in one direction (forward).</li>
+        </ul>
+        <div class="advantages">
+            <h3>Advantages:</h3>
+            <ul>
+                <li>Simple implementation</li>
+                <li>Efficient insertion and deletion at the beginning (O(1))</li>
+                <li>Memory efficient compared to doubly linked lists</li>
+            </ul>
+        </div>
+        <div class="disadvantages">
+            <h3>Disadvantages:</h3>
+            <ul>
+                <li>Cannot traverse backwards</li>
+                <li>Deletion at the end requires traversing the entire list</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="implementation-type">
+        <h2>2. Doubly Linked List</h2>
+        <ul>
+            <li>Structure: Each node contains data and two pointers - one to the next node and one to the previous node.</li>
+            <li>Traversal: Possible in both forward and backward directions.</li>
+        </ul>
+        <div class="advantages">
+            <h3>Advantages:</h3>
+            <ul>
+                <li>Bi-directional traversal</li>
+                <li>Efficient insertion and deletion at both ends (O(1))</li>
+                <li>Easier implementation of certain algorithms (e.g., reversing the list)</li>
+            </ul>
+        </div>
+        <div class="disadvantages">
+            <h3>Disadvantages:</h3>
+            <ul>
+                <li>More complex implementation</li>
+                <li>Higher memory overhead due to extra pointer</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="implementation-type">
+        <h2>3. Circular Linked List</h2>
+        <ul>
+            <li>Can be implemented as either singly or doubly linked.</li>
+            <li>The last node points back to the first node, creating a circle.</li>
+            <li>No null references in a fully formed list.</li>
+        </ul>
+        <div class="advantages">
+            <h3>Advantages:</h3>
+            <ul>
+                <li>Useful for applications requiring repetitive cycling through list elements</li>
+                <li>Efficient implementation of certain algorithms (e.g., round-robin scheduling)</li>
+            </ul>
+        </div>
+        <div class="disadvantages">
+            <h3>Disadvantages:</h3>
+            <ul>
+                <li>Slightly more complex termination conditions for traversal</li>
+                <li>Risk of infinite loops if not implemented carefully</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Key Operations:</h2>
+    <ol>
+        <li>Node Creation: Allocating memory for a new node and initializing its data and pointer(s).</li>
+        <li>Insertion: Adding a new node to the list (at the beginning, end, or a specific position).</li>
+        <li>Deletion: Removing a node from the list and properly adjusting the surrounding links.</li>
+        <li>Traversal: Visiting each node in the list to perform operations or retrieve data.</li>
+    </ol>
           </section>
         );
         case 'visualizer':
@@ -282,20 +367,6 @@ function LinkedListPage() {
             <QuestionSet questionSet={allQuestions[2]} />
           </section>
         );
-      case 'code':
-        return (
-          <section id="code">
-            <h2>Code</h2>
-            <p>We will have a sample code for this in C, C++, Java and Python for this.</p>
-          </section>
-        );
-      case 'feedback':
-        return (
-          <section id="feedback">
-            <h2>Feedback</h2>
-            <p>Your feedback is valuable! Please let us know your thoughts on this lesson about Linked Lists.</p>
-          </section>
-        );
       default:
         return null;
     }
@@ -319,7 +390,7 @@ function LinkedListPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'implementation','visualizer', 'further-reading', 'quiz', 'posttest', 'code', 'feedback'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest', 'implementation','visualizer', 'further-reading', 'quiz', 'posttest'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
