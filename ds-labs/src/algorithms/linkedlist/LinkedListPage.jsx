@@ -197,7 +197,18 @@ function LinkedListPage() {
   const handleSectionClick = (sectionId) => {
     setCurrentSection(sectionId);
   };
-
+  const tableHeaderStyle = {
+    padding: '12px',
+    textAlign: 'left',
+    borderBottom: '2px solid #ddd',
+    color: '#333',
+    fontWeight: 'bold'
+  };
+  
+  const tableCellStyle = {
+    padding: '12px',
+    borderBottom: '1px solid #ddd'
+  };
   const renderSectionContent = (sectionId) => {
     switch (sectionId) {
       case 'aim':
@@ -346,43 +357,55 @@ function LinkedListPage() {
             <h1>Further Reading/References</h1>
     
     <h2>Linked List vs Array Comparison</h2>
-    <table>
-        <tr>
-            <th>Aspect</th>
-            <th>Linked List</th>
-            <th>Array</th>
-        </tr>
-        <tr>
-            <td>Memory Allocation</td>
-            <td>Dynamic (can grow/shrink)</td>
-            <td>Static (fixed size)</td>
-        </tr>
-        <tr>
-            <td>Insertion/Deletion</td>
-            <td>Efficient (O(1) at beginning/end)</td>
-            <td>Inefficient (may require shifting elements)</td>
-        </tr>
-        <tr>
-            <td>Random Access</td>
-            <td>Inefficient (O(n))</td>
-            <td>Efficient (O(1))</td>
-        </tr>
-        <tr>
-            <td>Memory Usage</td>
-            <td>Extra memory for pointers</td>
-            <td>No extra overhead</td>
-        </tr>
-        <tr>
-            <td>Implementation</td>
-            <td>More complex</td>
-            <td>Simpler</td>
-        </tr>
-        <tr>
-            <td>Cache Performance</td>
-            <td>Poor (non-contiguous memory)</td>
-            <td>Good (contiguous memory)</td>
-        </tr>
-    </table>
+    <div style={{ overflowX: 'auto' }}>
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          marginBottom: '20px',
+          boxShadow: '0 2px 3px rgba(0,0,0,0.1)',
+          border: '1px solid #ddd'
+        }}>
+          <thead>
+            <tr style={{ backgroundColor: '#f2f2f2' }}>
+              <th style={tableHeaderStyle}>Aspect</th>
+              <th style={tableHeaderStyle}>Linked List</th>
+              <th style={tableHeaderStyle}>Array</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={tableCellStyle}>Memory Allocation</td>
+              <td style={tableCellStyle}>Dynamic (can grow/shrink)</td>
+              <td style={tableCellStyle}>Static (fixed size)</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>Insertion/Deletion</td>
+              <td style={tableCellStyle}>Efficient (O(1) at beginning/end)</td>
+              <td style={tableCellStyle}>Inefficient (may require shifting elements)</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>Random Access</td>
+              <td style={tableCellStyle}>Inefficient (O(n))</td>
+              <td style={tableCellStyle}>Efficient (O(1))</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>Memory Usage</td>
+              <td style={tableCellStyle}>Extra memory for pointers</td>
+              <td style={tableCellStyle}>No extra overhead</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>Implementation</td>
+              <td style={tableCellStyle}>More complex</td>
+              <td style={tableCellStyle}>Simpler</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>Cache Performance</td>
+              <td style={tableCellStyle}>Poor (non-contiguous memory)</td>
+              <td style={tableCellStyle}>Good (contiguous memory)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
     <p>Key Takeaways:</p>
     <ul>
