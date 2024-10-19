@@ -106,8 +106,48 @@ const allQuestions = [
           "Solve the problem by trying all possible solutions and choosing the best one."
         ],
         correctAnswer: "Break the problem into smaller subproblems, solve the subproblems recursively, and combine the solutions."
+      },
+      {
+        question: "Compare and contrast merge sort with quicksort.",
+        options: [
+          "Both are divide-and-conquer algorithms, but merge sort is stable while quicksort is not.",
+          "Both are stable sorting algorithms, but merge sort has a worst-case time complexity of O(n log n) while quicksort has a worst-case time complexity of O(n^2).",
+          "Both have a worst-case time complexity of O(n log n), but merge sort is stable while quicksort is not.",
+          "Both are stable sorting algorithms with a worst-case time complexity of O(n log n)."
+        ],
+        correctAnswer: "Both are divide-and-conquer algorithms, but merge sort is stable while quicksort is not."
+      },
+      {
+        question: "What is the time complexity of the merge sort algorithm in the worst case?",
+        options: [
+          "O(n)",
+          "O(n²)",
+          "O(log n)",
+          "O(n log n)"
+        ],
+        correctAnswer: "O(n log n)"
+      },
+      {
+        question: "During the merge process in merge sort, how are two subarrays combined?",
+        options: [
+          "By comparing the smallest elements of both subarrays",
+          "By adding all elements of the first subarray, then the second",
+          "By sorting the entire array again",
+          "By randomly picking elements from each subarray"
+        ],
+        correctAnswer: "By comparing the smallest elements of both subarrays"
+      },
+      {
+        question: "Which of the following best describes merge sort?",
+        options: [
+          "In-place sorting algorithm",
+          "Stable sorting algorithm",
+          "Non-recursive sorting algorithm.",
+          "Slower than selection sort"
+        ],
+        correctAnswer: "Stable sorting algorithm"
       }
-      // ... other posttest questions
+      
     ]
   }
 ];
