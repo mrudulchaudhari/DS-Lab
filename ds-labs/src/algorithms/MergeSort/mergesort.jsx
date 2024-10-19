@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MergeSortVisualizer from './MergeSortVisualizer';
 
 const allQuestions = [
   {
@@ -264,6 +265,14 @@ function MergeSortPage() {
             </ol>
           </section>
         );
+      case 'visualizer':
+        return (
+          <section id="visualizer">
+            <h2>Merge Sort Visualizer</h2>
+            <p>Use this interactive visualizer to see how Merge Sort works step-by-step:</p>
+            <MergeSortVisualizer />
+          </section>
+        );
       case 'Algorithm/implementation':
         return (
           <section id="Algorithm/implementation">
@@ -352,7 +361,7 @@ function MergeSortPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'Divide-Conquer', 'Algorithm/implementation', 'quiz', 'Analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest', 'Divide-Conquer', 'Algorithm/implementation','visualizer', 'quiz', 'Analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
