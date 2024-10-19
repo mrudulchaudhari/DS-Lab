@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BSTVisualizer, { BST } from './BSTVisualizer';
 
 const allQuestions = [
   {
@@ -281,6 +282,14 @@ function BSTPage() {
             <p>Additionally, level order traversal visits nodes level by level from top to bottom.</p>
           </section>
         );
+        case 'visualizer':
+        return (
+          <section id="visualizer">
+            <h2>Binary Search Tree Visualizer</h2>
+            <p>Visualize the operations of a Binary Search Tree with this interactive tool.</p>
+            <BSTVisualizer />
+          </section>
+        );
       case 'quiz':
         return (
           <section id="quiz">
@@ -357,7 +366,7 @@ function BSTPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals', 'quiz', 'analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals','visualizer', 'quiz', 'analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
