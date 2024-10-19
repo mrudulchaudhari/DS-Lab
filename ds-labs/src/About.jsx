@@ -1,6 +1,9 @@
 import React from 'react';
+import Header from './Header';
+// import mrudul from './assets/mrudul.jpg';
 
 function About() {
+  
   const teamMembers = [
     
     {
@@ -35,7 +38,8 @@ function About() {
     }
   ];
 
-  return (
+  return (<>
+    <Header></Header>
     <div className="about" style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
       <h1 style={{ color: '#333', textAlign: 'center' }}>Our Algorithm and Data Structure Specialists</h1>
       
@@ -89,7 +93,7 @@ function About() {
       </section>
 
       
-    </div>
+    </div></>
   );
 }
 

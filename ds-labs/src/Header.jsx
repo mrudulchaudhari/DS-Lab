@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  };
+  const location = useLocation();
 
   return (
     <header className="header">
@@ -15,13 +11,22 @@ function Header() {
           <div className="logo">
             <h1>DS Lab Project</h1>
           </div>
-          <button className="nav-toggle" onClick={toggleNav} aria-label="Toggle navigation">
-            ☰
-          </button>
-          <nav className={`main-nav ${isNavOpen ? 'active' : ''}`}>
+          <nav className="main-nav">
             <ul>
-              <li><a href="#" onClick={toggleNav}>Home</a></li>
-              <li><Link to="/about" onClick={toggleNav}>About</Link></li>        
+              <li>
+                {location.pathname === '/about' ? (
+                  <Link to="/">Home</Link>
+                ) : (
+                  <span className="current-page">Home</span>
+                )}
+              </li>
+              <li>
+                {location.pathname === '/' ? (
+                  <Link to="/about">About</Link>
+                ) : (
+                  <span className="current-page">About</span>
+                )}
+              </li>        
             </ul>
           </nav>
         </div>
