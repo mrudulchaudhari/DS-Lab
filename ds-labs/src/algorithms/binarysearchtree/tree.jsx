@@ -329,6 +329,10 @@ function BSTPage() {
         return (
           <section id="further-reading">
             <h2>Further Reading/References</h2>
+            <h2>Binary tree in c++</h2>
+            <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ScdwdSCnXDU?si=qLLX8b7RM57Xpirm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
             <ul>
               <li><a href="https://en.wikipedia.org/wiki/Binary_search_tree">Wikipedia - Binary Search Tree</a></li>
               <li><a href="https://www.geeksforgeeks.org/binary-search-tree-data-structure/">GeeksforGeeks - Binary Search Tree</a></li>
