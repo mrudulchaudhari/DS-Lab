@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import HashingVisualizer from './hashingvisualizer';
 
 const allQuestions = [
   {
@@ -254,6 +255,13 @@ function HashingPage() {
             <QuestionSet questionSet={allQuestions[0]} />
           </section>
         );
+        case 'visualizer':
+          return (
+            <section id="visualizer">
+              <h2>Hashing Visualizer</h2>
+              <HashingVisualizer />
+            </section>
+          );
       case 'hash-functions':
         return (
           <section id="hash-functions">
