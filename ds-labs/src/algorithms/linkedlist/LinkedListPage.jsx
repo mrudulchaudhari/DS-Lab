@@ -461,7 +461,7 @@ function LinkedListPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'implementation','visualizer', 'further-reading', 'quiz', 'posttest'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest', 'implementation','visualizer', 'quiz', 'posttest', 'further-reading'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 

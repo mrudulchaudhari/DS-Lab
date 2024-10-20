@@ -75,6 +75,18 @@ function App() {
   {expanded ? 'Read Less' : 'Read More'}
 </button>
         </section>
+        <section className="card feedback-section">
+  <h2>We Value Your Feedback</h2>
+  <p>Your opinion matters to us! Help us improve the Data Structures Lab by sharing your thoughts and suggestions.</p>
+  <a 
+    href="https://docs.google.com/forms/d/15XCPUd0txrqkA5IM9t40Pp25fo8k8COMzbI626ATdrQ/edit" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="feedback-button"
+  >
+    Provide Feedback
+  </a>
+</section>
       </main>
       <Footer />
     </div>

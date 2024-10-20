@@ -214,6 +214,7 @@ function BSTPage() {
   const handleSectionClick = (sectionId) => {
     setCurrentSection(sectionId);
   };
+  
 
   const renderSectionContent = (sectionId) => {
     switch (sectionId) {
@@ -357,7 +358,6 @@ function BSTPage() {
       </header>
 
       <div style={{ display: 'flex', marginTop: '20px' }}>
-        {/* Sidebar Navigation */}
         <nav style={{
           width: '200px',
           marginRight: '20px',
@@ -385,13 +385,15 @@ function BSTPage() {
           </ul>
         </nav>
 
-        {/* Main Content Area */}
         <main style={{ flexGrow: 1 }}>
           <div style={{
             backgroundColor: '#fff',
             padding: '20px',
             borderRadius: '5px',
-            boxShadow: '0 0 10px rgba(0,0,0,0.1)'
+            boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+            maxWidth: '800px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
           }}>
             {renderSectionContent(currentSection)}
           </div>
