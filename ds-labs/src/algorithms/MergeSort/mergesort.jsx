@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import MergeSortVisualizer from './MergeSortVisualizer';
+import Header from '../../Header';
+import Footer from '../../Footer';
 
 const allQuestions = [
   {
@@ -450,6 +452,8 @@ function MergeSortPage() {
   };
 
   return (
+    <>
+    <Header/>
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
       <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
         <h1>Merge Sort Algorithm</h1>
@@ -467,7 +471,7 @@ function MergeSortPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'pretest', 'Divide-Conquer', 'Algorithm/implementation','visualizer', 'quiz', 'Analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
+            {['aim', 'overview', 'pretest', 'Divide-Conquer', 'Algorithm/implementation','visualizer', 'quiz', 'Analysis', 'posttest', 'further-reading'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
@@ -499,17 +503,8 @@ function MergeSortPage() {
           </div>
         </main>
       </div>
-
-      <footer style={{
-        textAlign: "center",
-        padding: "10px",
-        backgroundColor: "#2c3e50",
-        color: "white",
-        marginTop: "20px"
-      }}>
-        &copy; 2024 Merge Sort Learning Platform
-      </footer>
     </div>
+    <Footer/></>
   );
 }
 
