@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import BSTVisualizer, { BST } from './BSTVisualizer';
+import Header from '../../Header';
+import Footer from '../../Footer';
 
 const allQuestions = [
   {
@@ -347,6 +349,8 @@ function BSTPage() {
   };
 
   return (
+    <>
+    <Header></Header>
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
       <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
         <h1>Binary Search Trees in Data Structures</h1>
@@ -394,16 +398,10 @@ function BSTPage() {
         </main>
       </div>
 
-      <footer style={{
-        textAlign: "center",
-        padding: "10px",
-        backgroundColor: "#2c3e50",
-        color: "white",
-        marginTop: "20px"
-      }}>
-        &copy; 2024 Binary Search Tree Learning Platform
-      </footer>
+      
     </div>
+    <Footer></Footer>
+    </>
     );
 }
 
