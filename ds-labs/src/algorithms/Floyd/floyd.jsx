@@ -482,48 +482,7 @@ function FloydsAlgorithmPage() {
                     <li><strong>Space Complexity:</strong> O(V²) for the distance matrix</li>
                     <li><strong>Auxiliary Space:</strong> O(V²) for the path reconstruction matrix</li>
                   </ul>
-                </div>
-    
-                <div className="comparison-table" style={{ marginBottom: '30px' }}>
-                  <h4>Comparison with Other Shortest Path Algorithms</h4>
-                  <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
-                    <thead>
-                      <tr style={{ backgroundColor: '#f2f2f2' }}>
-                        <th style={{ border: '1px solid #ddd', padding: '12px', textAlign: 'left' }}>Feature</th>
-                        <th style={{ border: '1px solid #ddd', padding: '12px', textAlign: 'left' }}>Floyd-Warshall</th>
-                        <th style={{ border: '1px solid #ddd', padding: '12px', textAlign: 'left' }}>Dijkstra</th>
-                        <th style={{ border: '1px solid #ddd', padding: '12px', textAlign: 'left' }}>Bellman-Ford</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Time Complexity</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>O(V³)</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>O(V² log V)</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>O(VE)</td>
-                      </tr>
-                      <tr>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Negative Edges</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>No</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
-                      </tr>
-                      <tr>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>All Pairs Shortest Path</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>No</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>No</td>
-                      </tr>
-                      <tr>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Negative Cycle Detection</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>No</td>
-                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-    
+                </div>    
                 <div className="implementation-steps" style={{ marginBottom: '30px' }}>
                   <h4>Core Algorithm Steps</h4>
                   <ol>
@@ -642,6 +601,50 @@ function FloydsAlgorithmPage() {
         return (
           <section id="further-reading">
             <h2>Further Reading/References</h2>
+            <div className="comparison-table" style={{ marginBottom: '30px' }}>
+                  <h2>Comparison with Other Shortest Path Algorithms</h2>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
+                    <thead>
+                      <tr style={{ backgroundColor: '#f2f2f2' }}>
+                        <th style={{ border: '1px solid #ddd', padding: '12px', textAlign: 'left' }}>Feature</th>
+                        <th style={{ border: '1px solid #ddd', padding: '12px', textAlign: 'left' }}>Floyd-Warshall</th>
+                        <th style={{ border: '1px solid #ddd', padding: '12px', textAlign: 'left' }}>Dijkstra</th>
+                        <th style={{ border: '1px solid #ddd', padding: '12px', textAlign: 'left' }}>Bellman-Ford</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Time Complexity</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>O(V³)</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>O(V² log V)</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>O(VE)</td>
+                      </tr>
+                      <tr>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Negative Edges</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>No</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
+                      </tr>
+                      <tr>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>All Pairs Shortest Path</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>No</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>No</td>
+                      </tr>
+                      <tr>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Negative Cycle Detection</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>No</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>Yes</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            <h2>Video Explaination</h2>
+            <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4OQeCuLYj-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <h2>Addtional Resources</h2>
             <p>For more detailed information on Floyd's Algorithm, refer to these resources:</p>
             <ul>
               <li><a href="https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/">GeeksforGeeks - Floyd Warshall Algorithm</a></li>
