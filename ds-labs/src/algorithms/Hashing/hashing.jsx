@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import HashingVisualizer from './hashingvisualizer';
+import Header from '../../Header';
+import Footer from '../../Footer';
 
 const allQuestions = [
   {
@@ -350,6 +352,7 @@ function HashingPage() {
   };
 
   return (
+    <><Header/>
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
       <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
         <h1>Hashing </h1>
@@ -399,17 +402,8 @@ function HashingPage() {
           </div>
         </main>
       </div>
-
-      <footer style={{
-        textAlign: "center",
-        padding: "10px",
-        backgroundColor: "#2c3e50",
-        color: "white",
-        marginTop: "20px"
-      }}>
-        &copy; 2024 Hashing Learning Platform
-      </footer>
     </div>
+    <Footer/></>
   );
 }
 

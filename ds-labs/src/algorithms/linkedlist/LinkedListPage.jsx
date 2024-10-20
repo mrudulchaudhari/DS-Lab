@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import LinkedListVisualizer from './LinkedListVisualizer';
+import Header from '../../Header';
+import Footer from '../../Footer';
 
 const allQuestions = [
   {
@@ -449,6 +451,8 @@ function LinkedListPage() {
   };
 
   return (
+    <>
+    <Header/>
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
       <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
         <h1>Linked List</h1>
@@ -498,17 +502,9 @@ function LinkedListPage() {
           </div>
         </main>
       </div>
-
-      <footer style={{
-        textAlign: "center",
-        padding: "10px",
-        backgroundColor: "#2c3e50",
-        color: "white",
-        marginTop: "20px"
-      }}>
-        <p>© 2024 Linked List Education</p>
-      </footer>
     </div>
+    <Footer/>
+    </>
   );
 }
 

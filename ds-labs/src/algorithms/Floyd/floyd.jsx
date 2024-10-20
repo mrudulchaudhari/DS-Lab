@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Header from '../../Header';
+import Footer from '../../Footer';
 
 const allQuestions = [
   {
@@ -659,6 +661,7 @@ function FloydsAlgorithmPage() {
   };
 
   return (
+    <> <Header/>
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
       <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
         <h1>Floyd's Algorithm</h1>
@@ -706,17 +709,8 @@ function FloydsAlgorithmPage() {
           </div>
         </main>
       </div>
-
-      <footer style={{
-        textAlign: "center",
-        padding: "10px",
-        backgroundColor: "#2c3e50",
-        color: "white",
-        marginTop: "20px"
-      }}>
-        <p>© 2024 Floyd's Algorithm Learning Platform</p>
-      </footer>
     </div>
+    <Footer/></>
   );
 }
 
