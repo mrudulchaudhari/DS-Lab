@@ -409,7 +409,7 @@ function LinkedListPage() {
 
     <h2>Video Explanation in C++</h2>
     <div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/A7eUPXUR9H8?si=ntiyDWkcyUqMpsn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Crqgl10aIGQ?si=OpfCsRULzBTzXPu_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
     <h2>Additional Resources</h2>

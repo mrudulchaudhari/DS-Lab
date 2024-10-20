@@ -332,6 +332,9 @@ function HashingPage() {
         return (
           <section id="further-reading">
             <h2>Further Reading/References</h2>
+            <h2>Video Link in C++</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0kfM_YEzR94?si=jvhq8yndzLPfVk7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h2>Reading Links</h2>
             <ul>
               <li><a href="https://en.wikipedia.org/wiki/Hash_table">Wikipedia - Hash Table</a></li>
               <li><a href="https://www.geeksforgeeks.org/hashing-data-structure/">GeeksforGeeks - Hashing Data Structure</a></li>
