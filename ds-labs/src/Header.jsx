@@ -14,18 +14,10 @@ function Header() {
           <nav className="main-nav">
             <ul>
               <li>
-                {location.pathname === '/about' ? (
-                  <Link to="/">Home</Link>
-                ) : (
-                  <span className="current-page">Home</span>
-                )}
+              <Link to="/">Home</Link>
               </li>
               <li>
-                {location.pathname === '/' ? (
-                  <Link to="/about">About</Link>
-                ) : (
-                  <span className="current-page">About</span>
-                )}
+              <Link to="/about">About</Link>
               </li>        
             </ul>
           </nav>

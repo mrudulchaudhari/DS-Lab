@@ -237,18 +237,9 @@ function LinkedListPage() {
         return (
           <section id="recap">
             <h2>Recap</h2>
-            <p>In our theoretical lectures, we've explored a variety of fundamental data structures,
-               each with its unique characteristics and applications. We've dedicated specific attention
-                to Linked Lists, examining their structure, types, and operations in depth. 
-                Linked Lists stand out for their dynamic memory allocation and efficient insertion and deletion capabilities, 
-                especially when compared to arrays. We've also discussed other linear data structures like stacks and queues, 
-                as well as more complex structures such as trees and graphs.</p>
-            <p>In our theoretical lectures, we've explored a variety of fundamental data structures, 
-              each with its unique characteristics and applications. We've dedicated specific attention to 
-              Linked Lists, examining their structure, types, and operations in depth. Linked Lists stand out 
-              for their dynamic memory allocation and efficient insertion and deletion capabilities, 
-              especially when compared to arrays. We've also discussed other linear data structures like 
-              stacks and queues, as well as more complex structures such as trees and graphs.</p>
+            <p>In previous lessons, we've explored merge sort and it's time and space complexity.
+              Now we will learn about Linked Lists.
+            </p>
           </section>
         );
       case 'pretest':

@@ -370,7 +370,7 @@ function HashingPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'hash-functions', 'collision-resolution','visualizer', 'quiz', 'analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest', 'hash-functions', 'collision-resolution','visualizer', 'quiz', 'analysis', 'posttest', 'further-reading'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 

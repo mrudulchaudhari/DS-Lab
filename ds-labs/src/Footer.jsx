@@ -9,7 +9,7 @@ function Footer() {
           <div className="footer-section">
             <h3>Quick Links</h3>
             <ul>
-              <li><a href="#">Home</a></li>
+              <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
               
             </ul>
