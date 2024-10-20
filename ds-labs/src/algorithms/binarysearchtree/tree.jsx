@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import BSTVisualizer, { BST } from './BSTVisualizer';
+import Header from '../../Header';
+import Footer from '../../Footer';
 
 const allQuestions = [
   {
@@ -220,8 +222,7 @@ function BSTPage() {
           <section id="aim">
             <h2>Aim</h2>
             <p>
-              The aim of this page is to provide a comprehensive understanding of
-              Binary Search Trees (BST), their implementation, and applications in computer science and data structures.
+            This page aims to provide a comprehensive understanding of Binary Search Trees (BSTs), covering their properties, implementation, and applications in computer science and data structures. It includes interactive quizzes to test your knowledge, an interactive visualizer for exploring BST operations, and curated reading materials for deeper insights.
             </p>
           </section>
         );
@@ -329,6 +330,11 @@ function BSTPage() {
         return (
           <section id="further-reading">
             <h2>Further Reading/References</h2>
+            <h2>Binary tree in c++</h2>
+            <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ScdwdSCnXDU?si=qLLX8b7RM57Xpirm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <h2>Links</h2>
             <ul>
               <li><a href="https://en.wikipedia.org/wiki/Binary_search_tree">Wikipedia - Binary Search Tree</a></li>
               <li><a href="https://www.geeksforgeeks.org/binary-search-tree-data-structure/">GeeksforGeeks - Binary Search Tree</a></li>
@@ -336,19 +342,15 @@ function BSTPage() {
             </ul>
           </section>
         );
-      case 'feedback':
-        return (
-          <section id="feedback">
-            <h2>Feedback</h2>
-            <p>Your feedback is valuable! Please let us know your thoughts on this lesson about Binary Search Trees.</p>
-          </section>
-        );
+     
       default:
         return null;
     }
   };
 
   return (
+    <>
+    <Header></Header>
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
       <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
         <h1>Binary Search Trees in Data Structures</h1>
@@ -366,7 +368,7 @@ function BSTPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals','visualizer', 'quiz', 'analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals','visualizer', 'quiz', 'analysis', 'posttest', 'further-reading'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
@@ -396,16 +398,10 @@ function BSTPage() {
         </main>
       </div>
 
-      <footer style={{
-        textAlign: "center",
-        padding: "10px",
-        backgroundColor: "#2c3e50",
-        color: "white",
-        marginTop: "20px"
-      }}>
-        &copy; 2024 Binary Search Tree Learning Platform
-      </footer>
+      
     </div>
+    <Footer></Footer>
+    </>
     );
 }
 
