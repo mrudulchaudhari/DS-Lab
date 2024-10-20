@@ -340,13 +340,7 @@ function BSTPage() {
             </ul>
           </section>
         );
-      case 'feedback':
-        return (
-          <section id="feedback">
-            <h2>Feedback</h2>
-            <p>Your feedback is valuable! Please let us know your thoughts on this lesson about Binary Search Trees.</p>
-          </section>
-        );
+     
       default:
         return null;
     }
@@ -370,7 +364,7 @@ function BSTPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals','visualizer', 'quiz', 'analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals','visualizer', 'quiz', 'analysis', 'posttest', 'further-reading'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
