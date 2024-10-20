@@ -326,9 +326,9 @@ function BSTPage() {
             <QuestionSet questionSet={allQuestions[2]} />
           </section>
         );
-      case 'further-reading':
+      case 'FurtherReading':
         return (
-          <section id="further-reading">
+          <section id="FurtherReading">
             <h2>Further Reading/References</h2>
             <h2>Binary tree in c++</h2>
             <div class="video-container">
@@ -368,7 +368,7 @@ function BSTPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals','visualizer', 'quiz', 'analysis', 'posttest', 'further-reading'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals','visualizer', 'quiz', 'analysis', 'posttest', 'FurtherReading'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
