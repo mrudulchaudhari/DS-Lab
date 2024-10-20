@@ -220,8 +220,7 @@ function BSTPage() {
           <section id="aim">
             <h2>Aim</h2>
             <p>
-              The aim of this page is to provide a comprehensive understanding of
-              Binary Search Trees (BST), their implementation, and applications in computer science and data structures.
+            This page aims to provide a comprehensive understanding of Binary Search Trees (BSTs), covering their properties, implementation, and applications in computer science and data structures. It includes interactive quizzes to test your knowledge, an interactive visualizer for exploring BST operations, and curated reading materials for deeper insights.
             </p>
           </section>
         );
@@ -333,6 +332,7 @@ function BSTPage() {
             <div class="video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/ScdwdSCnXDU?si=qLLX8b7RM57Xpirm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+            <h2>Links</h2>
             <ul>
               <li><a href="https://en.wikipedia.org/wiki/Binary_search_tree">Wikipedia - Binary Search Tree</a></li>
               <li><a href="https://www.geeksforgeeks.org/binary-search-tree-data-structure/">GeeksforGeeks - Binary Search Tree</a></li>
