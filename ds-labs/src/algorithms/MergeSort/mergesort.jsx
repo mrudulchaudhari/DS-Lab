@@ -255,6 +255,18 @@ function MergeSortPage() {
   const handleSectionClick = (sectionId) => {
     setCurrentSection(sectionId);
   };
+  const tableHeaderStyle = {
+    padding: '12px',
+    textAlign: 'left',
+    borderBottom: '2px solid #ddd',
+    color: '#333',
+    fontWeight: 'bold'
+  };
+  
+  const tableCellStyle = {
+    padding: '12px',
+    borderBottom: '1px solid #ddd'
+  };
 
   const renderSectionContent = (sectionId) => {
     switch (sectionId) {
@@ -262,10 +274,8 @@ function MergeSortPage() {
         return (
           <section id="aim">
             <h2>Aim</h2>
-            <p>
-              The aim of this page is to provide a comprehensive understanding of
-              the Merge Sort algorithm, its implementation, and applications.
-            </p>
+            <p>To develop an interactive visualization tool that demonstrates the structure and operations of merge sort,
+               enhancing understanding through visual representation and reinforcing knowledge with integrated quizzes.</p>
           </section>
         );
       case 'overview':
@@ -275,13 +285,13 @@ function MergeSortPage() {
             <p>Merge Sort is an efficient, stable, divide-and-conquer sorting algorithm. It works by dividing the unsorted list into n sublists, each containing one element, then repeatedly merging sublists to produce new sorted sublists until there is only one sublist remaining.</p>
           </section>
         );
-      case 'recap':
-        return (
-          <section id="recap">
-            <h2>Recap</h2>
-            <p>In previous lessons, we've explored various sorting algorithms. Merge Sort stands out for its efficiency and stability, making it a popular choice for sorting large datasets.</p>
-          </section>
-        );
+      // case 'recap':
+      //   return (
+      //     <section id="recap">
+      //       <h2>Recap</h2>
+      //       <p>In previous lessons, we've explored various sorting algorithms. Merge Sort stands out for its efficiency and stability, making it a popular choice for sorting large datasets.</p>
+      //     </section>
+      //   );
       case 'pretest':
         return (
           <section id="pretest">
@@ -299,9 +309,9 @@ function MergeSortPage() {
             <h2>Divide and Conquer</h2>
             <p>Merge Sort follows the divide-and-conquer paradigm:</p>
             <ol>
-              <li>Divide: The array is divided into two halves.</li>
-              <li>Conquer: Each half is recursively sorted.</li>
-              <li>Combine: The sorted halves are merged to produce a sorted array.</li>
+              <li>Divide: Find the middle point of the array: mid = len(array) // 2. Split the array into left and right subarrays</li>
+              <li>Conquer: Recursively call merge sort on the left and right subarrays</li>
+              <li>Combine: Create temporary arrays for left and right halves. Compare elements from both halves and place them in the correct order in the original array. Copy any remaining elements from either half</li>
             </ol>
           </section>
         );
@@ -365,6 +375,62 @@ function MergeSortPage() {
         return (
           <section id="further-reading">
             <h2>Further Reading/References</h2>
+    
+    <h2>Merge Sort vs Quick Sort</h2>
+    <div style={{ overflowX: 'auto' }}>
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          marginBottom: '20px',
+          boxShadow: '0 2px 3px rgba(0,0,0,0.1)',
+          border: '1px solid #ddd'
+        }}>
+          <thead>
+            <tr style={{ backgroundColor: '#f2f2f2' }}>
+              <th style={tableHeaderStyle}>Aspect</th>
+              <th style={tableHeaderStyle}>Merge Sort</th>
+              <th style={tableHeaderStyle}>Quick Sort</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={tableCellStyle}>Basic Principle</td>
+              <td style={tableCellStyle}>Divide array in two, sort, then merge</td>
+              <td style={tableCellStyle}>Choose pivot, partition array, sort</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>Time Complexity (Average)</td>
+              <td style={tableCellStyle}>O(n log n)</td>
+              <td style={tableCellStyle}>O(n log n)</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>Time Complexity (Worst)</td>
+              <td style={tableCellStyle}>O(n log n)(O(n))</td>
+              <td style={tableCellStyle}>O(n^2)</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>Space Complexity</td>
+              <td style={tableCellStyle}>O(n)</td>
+              <td style={tableCellStyle}>O(log n)</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>In-place</td>
+              <td style={tableCellStyle}>Not In-place (requires extra space)</td>
+              <td style={tableCellStyle}>In-place (with stack space)</td>
+            </tr>
+            <tr>
+              <td style={tableCellStyle}>Cache Performance</td>
+              <td style={tableCellStyle}>Not cache friendly</td>
+              <td style={tableCellStyle}>Cache friendly</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <h2>Code in C</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ytK4Biw-CW4?si=5T0yefFw7GRsVc-Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <h2>Reading/References Links</h2>
+
             <ul>
               <li><a href="https://en.wikipedia.org/wiki/Merge_sort">Wikipedia - Merge Sort</a></li>
               <li><a href="https://www.geeksforgeeks.org/merge-sort/">GeeksforGeeks - Merge Sort</a></li>
@@ -401,7 +467,7 @@ function MergeSortPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'Divide-Conquer', 'Algorithm/implementation','visualizer', 'quiz', 'Analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
+            {['aim', 'overview', 'pretest', 'Divide-Conquer', 'Algorithm/implementation','visualizer', 'quiz', 'Analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
