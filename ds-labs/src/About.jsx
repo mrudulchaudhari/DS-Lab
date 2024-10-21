@@ -6,12 +6,12 @@ function About() {
   
   const teamMembers = [
     {
-      name: "Mrudul chaudhari(lead)",
+      name: "Mrudul Chaudhari(Lead)",
       role: "Linked List",
       description: "Focuses on advanced linked list structures and their applications. Developing a cache-efficient linked list implementation and exploring the use of skip lists for fast search operations in ordered data."
     },
     {
-      name: "Khushi sarda",
+      name: "Khushi Sarda",
       role: "Binary Search Tree",
       description: "Specializes in self-balancing binary search trees. Currently optimizing Red-Black tree implementations for concurrent access and investigating the practical applications of weight-balanced trees in database indexing."
     },
@@ -21,7 +21,7 @@ function About() {
       description: "Dedicated to optimizing Floyd-Warshall algorithm for all-pairs shortest paths. Working on a distributed version of the algorithm for large-scale graph processing and exploring its applications in network routing protocols."
     },
     {
-      name: "Adhishree shiledar",
+      name: "Adhishree Shiledar",
       role: "Merge Sort",
       description: "Focuses on enhancing merge sort for various data types and architectures. Developing a cache-aware merge sort algorithm and investigating its potential for external sorting of massive datasets that don't fit in main memory."
     },

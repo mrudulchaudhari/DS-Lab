@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import HashingVisualizer from './hashingvisualizer';
+import Header from '../../Header';
+import Footer from '../../Footer';
 
 const allQuestions = [
   {
@@ -254,6 +257,13 @@ function HashingPage() {
             <QuestionSet questionSet={allQuestions[0]} />
           </section>
         );
+        case 'visualizer':
+          return (
+            <section id="visualizer">
+              <h2>Hashing Visualizer</h2>
+              <HashingVisualizer />
+            </section>
+          );
       case 'hash-functions':
         return (
           <section id="hash-functions">
@@ -322,6 +332,9 @@ function HashingPage() {
         return (
           <section id="further-reading">
             <h2>Further Reading/References</h2>
+            <h2>Video Link in C++</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0kfM_YEzR94?si=jvhq8yndzLPfVk7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h2>Reading Links</h2>
             <ul>
               <li><a href="https://en.wikipedia.org/wiki/Hash_table">Wikipedia - Hash Table</a></li>
               <li><a href="https://www.geeksforgeeks.org/hashing-data-structure/">GeeksforGeeks - Hashing Data Structure</a></li>
@@ -342,6 +355,7 @@ function HashingPage() {
   };
 
   return (
+    <><Header/>
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
       <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
         <h1>Hashing </h1>
@@ -359,7 +373,7 @@ function HashingPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'hash-functions', 'collision-resolution', 'quiz', 'analysis', 'posttest', 'further-reading', 'feedback'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest', 'hash-functions', 'collision-resolution','visualizer', 'quiz', 'analysis', 'posttest', 'further-reading'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
@@ -391,17 +405,8 @@ function HashingPage() {
           </div>
         </main>
       </div>
-
-      <footer style={{
-        textAlign: "center",
-        padding: "10px",
-        backgroundColor: "#2c3e50",
-        color: "white",
-        marginTop: "20px"
-      }}>
-        &copy; 2024 Hashing Learning Platform
-      </footer>
     </div>
+    <Footer/></>
   );
 }
 
