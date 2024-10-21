@@ -648,13 +648,6 @@ function FloydsAlgorithmPage() {
             </ul>
           </section>
         );
-      case 'feedback':
-          return (
-            <section id="feedback">
-              <h2>Feedback</h2>
-              <p>Your feedback is valuable! Please let us know your thoughts on this lesson about Floyd's algorithm.</p>
-            </section>
-         );
       default:
         return null;
     }
@@ -678,7 +671,7 @@ function FloydsAlgorithmPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest','visualizer','analysis', 'quiz', 'posttest', 'further-reading','feedback'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest','visualizer','analysis', 'quiz', 'posttest', 'further-reading'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
