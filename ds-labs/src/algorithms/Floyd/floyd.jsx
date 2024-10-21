@@ -444,14 +444,7 @@ function FloydsAlgorithmPage() {
         return (
           <section id="recap">
             <h2>Recap</h2>
-            <p>In our previous discussions of graph algorithms, we've covered various shortest path algorithms 
-            including Dijkstra's and Bellman-Ford. Floyd's Algorithm provides a unique approach by:</p>
-            <ul>
-              <li>Finding all pairs shortest paths in a single execution</li>
-              <li>Using dynamic programming to build up the solution</li>
-              <li>Working with any type of weighted graph (including those with negative edges)</li>
-              <li>Providing a simpler implementation compared to running Dijkstra's algorithm multiple times</li>
-            </ul>
+            <p>In our previous  lectures, we've learned about non weighted graphs and algorithms based on them, now we move on to weighted graphs.</p>
           </section>
         );
       case 'pretest':
@@ -655,6 +648,13 @@ function FloydsAlgorithmPage() {
             </ul>
           </section>
         );
+      case 'feedback':
+          return (
+            <section id="feedback">
+              <h2>Feedback</h2>
+              <p>Your feedback is valuable! Please let us know your thoughts on this lesson about Floyd's algorithm.</p>
+            </section>
+         );
       default:
         return null;
     }
@@ -678,7 +678,7 @@ function FloydsAlgorithmPage() {
         }}>
           <h2>Contents</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest','visualizer','analysis', 'quiz', 'posttest', 'further-reading'].map((section) => (
+            {['aim', 'overview', 'recap', 'pretest','visualizer','analysis', 'quiz', 'posttest', 'further-reading','feedback'].map((section) => (
               <li key={section}>
                 <a 
                   href={`#${section}`} 
