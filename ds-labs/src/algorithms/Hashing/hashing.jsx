@@ -227,25 +227,72 @@ function HashingPage() {
           <section id="aim">
             <h2>Aim</h2>
             <p>
-              The aim of this page is to provide a comprehensive understanding of
-              hashing, its implementation, and applications in computer science and data structures.
+              The primary aim of this lesson is to provide a comprehensive understanding of hashing, 
+              its implementation, and applications in computer science and data structures.
             </p>
+            
+            <p>
+              By the end of this lesson, you will:
+            </p>
+            <ul>
+              <li>Understand the fundamental concepts of hashing</li>
+              <li>Learn about different hash functions and their properties</li>
+              <li>Explore collision resolution techniques</li>
+              <li>Analyze the performance of hash tables</li>
+              <li>Apply hashing concepts to solve real-world problems</li>
+            </ul>
           </section>
         );
-      case 'overview':
-        return (
-          <section id="overview">
-            <h2>Overview</h2>
-            <p>Hashing is a technique used to map data of arbitrary size to fixed-size values. It's commonly used for implementing associative arrays, database indexing, caching, and more. This page will cover the basics of hashing, hash functions, collision resolution techniques, and their applications.</p>
-          </section>
-        );
-      case 'recap':
-        return (
-          <section id="recap">
-            <h2>Recap</h2>
-            <p>In previous lessons, we've explored various data structures. Hashing stands out for its efficiency in storing and retrieving data, making it a crucial concept in computer science and software engineering.</p>
-          </section>
-        );
+
+        case 'overview':
+          return (
+            <section id="overview">
+              <h2>Overview</h2>
+              <p>
+                Hashing is a powerful technique used in computer science to efficiently map data of arbitrary 
+                size to fixed-size values. It's the backbone of many critical applications in modern computing.
+              </p>
+              
+              <h3>Key Concepts:</h3>
+              <ul>
+                <li><strong>Hash Function:</strong> A function that converts input data into a fixed-size hash value.</li>
+                <li><strong>Hash Table:</strong> A data structure that uses a hash function to efficiently store and retrieve data.</li>
+                <li><strong>Collision:</strong> When two different inputs produce the same hash value.</li>
+                <li><strong>Collision Resolution:</strong> Techniques to handle collisions in hash tables.</li>
+              </ul>
+              <h3>Applications:</h3>
+              <ul>
+                <li>Database Indexing</li>
+                <li>Caching</li>
+                <li>Cryptography</li>
+                <li>File Systems</li>
+                <li>Blockchain Technology</li>
+              </ul>
+            </section>
+          );
+  
+          case 'recap':
+            return (
+              <section id="recap">
+                <h2>Recap of Previous Concepts</h2>
+                <p>
+                  Before diving into hashing, let's quickly review some fundamental data structures 
+                  that form the foundation for understanding hash tables.
+                </p>
+                
+                <h3>Key Data Structures:</h3>
+                <ul>
+                  <li><strong>Arrays:</strong> Contiguous memory locations, constant-time access.</li>
+                  <li><strong>Linked Lists:</strong> Non-contiguous memory, linear-time access.</li>
+                  <li><strong>Binary Search Trees:</strong> Hierarchical structure, logarithmic-time operations.</li>
+                </ul>
+                <p>
+                  Hashing combines the best aspects of these structures, aiming for constant-time 
+                  operations while efficiently using memory.
+                </p>
+              </section>
+            );
+    
       case 'pretest':
         return (
           <section id="pretest">
