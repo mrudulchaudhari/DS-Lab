@@ -442,7 +442,7 @@ function FloydsAlgorithmPage() {
         return (
           <section id="recap">
             <h2>Recap</h2>
-            <p>In our previous discussions of graph algorithms, we've covered </p>
+            <p>In our previous  lectures, we've learned about non weighted graphs and algorithms based on them, now we move on to weighted graphs.</p>
           </section>
         );
       case 'pretest':
