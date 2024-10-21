@@ -1,230 +1,292 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// Default hash function (modulo)
-const defaultHashFunction = (key, tableSize) => key % tableSize;
+const isPrime = (n) => {
+  if (n <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+};
+
+const getNextPrime = (n) => {
+  while (!isPrime(n)) {
+    n++;
+  }
+  return n;
+};
 
 const HashingVisualizer = () => {
-  const [tableSize, setTableSize] = useState(10); // Size of the hash table
-  const [hashTable, setHashTable] = useState(Array.from({ length: tableSize }, () => []));
-  const [keyValue, setKeyValue] = useState({ key: '', value: '' });
-  const [hashFunctionType, setHashFunctionType] = useState('modulo'); // Custom hash function type
-  const [highlightedBucket, setHighlightedBucket] = useState(null); // Highlight bucket after insertion
+  const [tableSize, setTableSize] = useState(10);
+  const [hashTable, setHashTable] = useState([]);
+  const [inputNumber, setInputNumber] = useState('');
+  const [hashingMethod, setHashingMethod] = useState('linearProbing');
+  const [highlightedCell, setHighlightedCell] = useState(null);
+  const [steps, setSteps] = useState([]);
+  const [currentStep, setCurrentStep] = useState(0);
 
-  const getHashFunction = (type) => {
-    if (type === 'multiply') {
-      return (key, tableSize) => Math.floor((key * 0.6180339887) % 1 * tableSize); // Multiplication method
-    }
-    return defaultHashFunction; // Default: modulo
+  useEffect(() => {
+    initializeHashTable();
+  }, [tableSize, hashingMethod]);
+
+  const initializeHashTable = () => {
+    const size = getNextPrime(tableSize);
+    setTableSize(size);
+    setHashTable(Array(size).fill(null));
+    setSteps([]);
+    setCurrentStep(0);
   };
 
-  const hashFunction = getHashFunction(hashFunctionType);
-
-  const addKeyValue = () => {
-    if (keyValue.key.trim() !== '' && keyValue.value.trim() !== '') {
-      const key = parseInt(keyValue.key, 10);
-      if (isNaN(key)) {
-        alert('Key must be a number.');
+  const addNumber = () => {
+    if (inputNumber.trim() !== '') {
+      const number = parseInt(inputNumber, 10);
+      if (isNaN(number)) {
+        alert('Please enter a valid number.');
         return;
       }
-      const index = hashFunction(key, tableSize);
+      const newSteps = [];
       const newTable = [...hashTable];
-      newTable[index] = [...newTable[index], keyValue];
+
+      let index = number % tableSize;
+      newSteps.push({ type: 'initial', index, message: `Initial hash: ${number} % ${tableSize} = ${index}` });
+
+      if (hashingMethod === 'linearProbing') {
+        while (newTable[index] !== null) {
+          newSteps.push({ type: 'collision', index, message: 'Collision detected, moving to next slot' });
+          index = (index + 1) % tableSize;
+        }
+      } else if (hashingMethod === 'quadraticProbing') {
+        let i = 0;
+        while (newTable[index] !== null) {
+          newSteps.push({ type: 'collision', index, message: 'Collision detected, using quadratic probing' });
+          i++;
+          index = (index + i * i) % tableSize;
+        }
+      } else if (hashingMethod === 'doubleHashing') {
+        const hash2 = 7 - (number % 7);
+        let i = 0;
+        while (newTable[index] !== null) {
+          newSteps.push({ type: 'collision', index, message: 'Collision detected, using double hashing' });
+          i++;
+          index = (index + i * hash2) % tableSize;
+        }
+      } else if (hashingMethod === 'separateChaining') {
+        if (newTable[index] === null) {
+          newTable[index] = [];
+        }
+        newTable[index].push(number);
+        newSteps.push({ type: 'insert', index, message: 'Inserting into chain' });
+      }
+
+      if (hashingMethod !== 'separateChaining') {
+        newTable[index] = number;
+      }
+      
+      newSteps.push({ type: 'insert', index, message: 'Inserting number' });
+
       setHashTable(newTable);
-      setHighlightedBucket(index); // Highlight the bucket
-      setKeyValue({ key: '', value: '' });
-    }
-  };
-
-  const clearTable = () => {
-    setHashTable(Array.from({ length: tableSize }, () => []));
-    setHighlightedBucket(null);
-  };
-
-  const handleTableSizeChange = (e) => {
-    const size = parseInt(e.target.value, 10);
-    if (!isNaN(size) && size > 0) {
-      setTableSize(size);
-      clearTable();
+      setSteps(newSteps);
+      setCurrentStep(0);
+      setInputNumber('');
     }
   };
 
   const renderHashTable = () => {
-    return hashTable.map((bucket, index) => (
+    return hashTable.map((cell, index) => (
       <div
         key={index}
-        style={{
-          ...styles.bucketContainer,
-          backgroundColor: highlightedBucket === index ? '#FFEB3B' : '#2196F3',
-        }}
+        className={`cell ${highlightedCell === index ? 'highlighted' : ''}`}
       >
-        <div style={styles.bucketIndex}>Bucket {index}</div>
-        <div style={styles.bucketContent}>
-          {bucket.length > 0 ? bucket.map((pair, i) => (
-            <div key={i} style={styles.keyValuePair}>
-              {`(${pair.key}: ${pair.value})`}
+        <div className="cell-index">Cell {index}</div>
+        <div className="cell-content">
+          {cell === null ? (
+            <div className="empty-cell">Empty</div>
+          ) : hashingMethod === 'separateChaining' ? (
+            cell.map((item, i) => (
+              <div key={i} className="chain-item">
+                {item}
+              </div>
+            ))
+          ) : (
+            <div className="number-item">
+              {cell}
             </div>
-          )) : <div style={styles.emptyBucket}>Empty</div>}
+          )}
         </div>
       </div>
     ));
   };
 
+  const renderSteps = () => {
+    if (steps.length === 0) return null;
+    const step = steps[currentStep];
+    return (
+      <div className="step-display">
+        <p>{step.message}</p>
+        <div className="step-controls">
+          <button onClick={() => setCurrentStep(Math.max(0, currentStep - 1))} disabled={currentStep === 0}>
+            Previous
+          </button>
+          <button onClick={() => setCurrentStep(Math.min(steps.length - 1, currentStep + 1))} disabled={currentStep === steps.length - 1}>
+            Next
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    if (steps.length > 0) {
+      setHighlightedCell(steps[currentStep].index);
+    }
+  }, [currentStep, steps]);
+
   return (
-    <div style={styles.visualizer}>
-      <h2 style={styles.title}>Hashing Visualizer</h2>
+    <div className="hashing-visualizer">
+      <h2>Enhanced Hashing Visualizer</h2>
 
-      {/* Hash Function Type */}
-      <div style={styles.configContainer}>
-        <label style={styles.label}>Hash Function: </label>
-        <select
-          value={hashFunctionType}
-          onChange={(e) => setHashFunctionType(e.target.value)}
-          style={styles.select}
-        >
-          <option value="modulo">Modulo</option>
-          <option value="multiply">Multiply</option>
-        </select>
+      <div className="controls">
+        <div className="input-group">
+          <label>Hashing Method:</label>
+          <select value={hashingMethod} onChange={(e) => setHashingMethod(e.target.value)}>
+            <option value="linearProbing">Linear Probing</option>
+            <option value="quadraticProbing">Quadratic Probing</option>
+            <option value="doubleHashing">Double Hashing</option>
+            <option value="separateChaining">Separate Chaining</option>
+          </select>
+        </div>
+
+        <div className="input-group">
+          <label>Table Size:</label>
+          <input
+            type="number"
+            value={tableSize}
+            onChange={(e) => setTableSize(parseInt(e.target.value, 10))}
+            min="1"
+          />
+        </div>
+
+        <div className="input-group">
+          <input
+            type="text"
+            value={inputNumber}
+            onChange={(e) => setInputNumber(e.target.value)}
+            placeholder="Enter a number"
+          />
+          <button onClick={addNumber}>Add Number</button>
+        </div>
+
+        <button onClick={initializeHashTable}>Clear Table</button>
       </div>
 
-      {/* Table Size */}
-      <div style={styles.configContainer}>
-        <label style={styles.label}>Table Size: </label>
-        <input
-          type="number"
-          value={tableSize}
-          onChange={handleTableSizeChange}
-          style={styles.input}
-        />
-      </div>
+      {renderSteps()}
 
-      {/* Input for Key-Value */}
-      <div style={styles.inputContainer}>
-        <input
-          type="text"
-          value={keyValue.key}
-          onChange={(e) => setKeyValue({ ...keyValue, key: e.target.value })}
-          style={styles.input}
-          placeholder="Enter key (number)"
-        />
-        <input
-          type="text"
-          value={keyValue.value}
-          onChange={(e) => setKeyValue({ ...keyValue, value: e.target.value })}
-          style={styles.input}
-          placeholder="Enter value"
-        />
-        <button onClick={addKeyValue} style={styles.addButton}>
-          Add Key-Value
-        </button>
-      </div>
-
-      {/* Hash Table */}
-      <div style={styles.tableContainer}>
+      <div className="hash-table">
         {renderHashTable()}
       </div>
 
-      {/* Clear Table */}
-      <button onClick={clearTable} style={styles.clearButton}>Clear Table</button>
+      <style jsx>{`
+        .hashing-visualizer {
+          font-family: Arial, sans-serif;
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #f0f0f0;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+          text-align: center;
+          color: #333;
+        }
+
+        .controls {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+
+        .input-group {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+
+        input, select, button {
+          padding: 8px;
+          font-size: 14px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+
+        button {
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+
+        button:hover {
+          background-color: #45a049;
+        }
+
+        .step-display {
+          background-color: #fff;
+          padding: 10px;
+          border-radius: 4px;
+          margin-bottom: 20px;
+        }
+
+        .step-controls {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 10px;
+        }
+
+        .hash-table {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          justify-content: center;
+        }
+
+        .cell {
+          width: 100px;
+          background-color: #2196F3;
+          border-radius: 4px;
+          padding: 10px;
+          color: white;
+          transition: background-color 0.3s;
+        }
+
+        .cell.highlighted {
+          background-color: #FFC107;
+        }
+
+        .cell-index {
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .cell-content {
+          min-height: 40px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 4px;
+          padding: 5px;
+        }
+
+        .empty-cell {
+          color: rgba(255, 255, 255, 0.5);
+        }
+
+        .chain-item, .number-item {
+          margin: 2px 0;
+        }
+      `}</style>
     </div>
   );
-};
-
-const styles = {
-  visualizer: {
-    fontFamily: 'Arial, sans-serif',
-    maxWidth: '800px',
-    margin: '0 auto',
-    padding: '20px',
-    backgroundColor: '#f0f0f0',
-    borderRadius: '8px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-  },
-  title: {
-    fontSize: '24px',
-    marginBottom: '20px',
-    textAlign: 'center',
-  },
-  configContainer: {
-    marginBottom: '20px',
-    textAlign: 'center',
-  },
-  label: {
-    fontSize: '16px',
-    marginRight: '10px',
-  },
-  select: {
-    padding: '8px',
-    fontSize: '16px',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  inputContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '20px',
-  },
-  input: {
-    padding: '8px',
-    marginRight: '10px',
-    fontSize: '16px',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  addButton: {
-    padding: '8px 16px',
-    fontSize: '16px',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-  clearButton: {
-    padding: '8px 16px',
-    marginTop: '20px',
-    fontSize: '16px',
-    backgroundColor: '#f44336',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  tableContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  },
-  bucketContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    margin: '10px',
-    padding: '10px',
-    borderRadius: '4px',
-    color: 'white',
-  },
-  bucketIndex: {
-    fontWeight: 'bold',
-    marginBottom: '5px',
-  },
-  bucketContent: {
-    width: '150px',
-    minHeight: '50px',
-    padding: '10px',
-    backgroundColor: '#2196F3',
-    color: 'white',
-    borderRadius: '4px',
-    textAlign: 'center',
-  },
-  keyValuePair: {
-    margin: '5px 0',
-  },
-  emptyBucket: {
-    color: '#bbb',
-  },
 };
 
 export default HashingVisualizer;
