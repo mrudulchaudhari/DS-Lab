@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BSTVisualizer, { BST } from './BSTVisualizer';
 import Header from '../../Header';
 import Footer from '../../Footer';
@@ -46,6 +46,26 @@ const allQuestions = [
           "It can be anywhere in the tree"
         ],
         correctAnswer: "At the leftmost leaf"
+      },
+      {
+        question: "What happens when you insert a duplicate value in a standard BST?",
+        options: [
+          "It replaces the existing node",
+          "It is typically added to the right subtree",
+          "It causes an error",
+          "It is typically added to the left subtree"
+        ],
+        correctAnswer: "It is typically added to the right subtree"
+      },
+      {
+        question: "What is the height of a BST with a single node?",
+        options: ["0", "1", "2", "undefined"],
+        correctAnswer: "0"
+      },
+      {
+        question: "Which operation in BST requires traversing to a leaf node in most cases?",
+        options: ["Search", "Insertion", "Finding minimum", "Finding maximum"],
+        correctAnswer: "Insertion"
       }
     ]
   },
@@ -71,6 +91,26 @@ const allQuestions = [
           "To visit nodes level by level"
         ],
         correctAnswer: "To visit nodes in ascending order"
+      },
+      {
+        question: "What is the space complexity of a BST?",
+        options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+        correctAnswer: "O(n)"
+      },
+      {
+        question: "Which traversal is most useful for creating a copy of a BST?",
+        options: ["Inorder", "Preorder", "Postorder", "Level order"],
+        correctAnswer: "Preorder"
+      },
+      {
+        question: "What is the minimum number of nodes in a BST of height h?",
+        options: ["h", "h+1", "2^h", "2^(h+1)-1"],
+        correctAnswer: "h+1"
+      },
+      {
+        question: "In a BST, which traversal would print the nodes in ascending order?",
+        options: ["Preorder", "Inorder", "Postorder", "Level order"],
+        correctAnswer: "Inorder"
       }
     ]
   },
@@ -106,6 +146,36 @@ const allQuestions = [
           "To make the tree more visually appealing"
         ],
         correctAnswer: "To maintain O(log n) time complexity for operations"
+      },
+      {
+        question: "What is the relationship between BST height and its performance?",
+        options: [
+          "Height has no impact on performance",
+          "Lower height generally means better performance",
+          "Higher height generally means better performance",
+          "Height only affects memory usage"
+        ],
+        correctAnswer: "Lower height generally means better performance"
+      },
+      {
+        question: "Which BST property makes binary search possible?",
+        options: [
+          "All nodes must have two children",
+          "The tree must be balanced",
+          "Left subtree values must be less than parent and right subtree values must be greater",
+          "All leaf nodes must be at the same level"
+        ],
+        correctAnswer: "Left subtree values must be less than parent and right subtree values must be greater"
+      },
+      {
+        question: "What makes AVL trees better than standard BSTs?",
+        options: [
+          "They use less memory",
+          "They automatically maintain balance",
+          "They allow duplicate keys",
+          "They have faster insertion"
+        ],
+        correctAnswer: "They automatically maintain balance"
       }
     ]
   }
@@ -115,6 +185,21 @@ const QuestionSet = ({ questionSet }) => {
   const [userAnswers, setUserAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
+  const [randomQuestions, setRandomQuestions] = useState([]);
+  const [quizId, setQuizId] = useState(0); // Add this to force re-render of questions
+
+  useEffect(() => {
+    initializeQuiz();
+  }, [questionSet]);
+
+  const initializeQuiz = () => {
+    const shuffled = [...questionSet.questions].sort(() => 0.5 - Math.random());
+    setRandomQuestions(shuffled.slice(0, 5));
+    setUserAnswers({});
+    setSubmitted(false);
+    setScore(0);
+    setQuizId(prev => prev + 1); // Increment quiz ID to force re-render
+  };
 
   const handleAnswerChange = (questionIndex, answer) => {
     setUserAnswers(prev => ({
@@ -124,12 +209,12 @@ const QuestionSet = ({ questionSet }) => {
   };
 
   const handleSubmit = () => {
-    if (Object.keys(userAnswers).length !== questionSet.questions.length) {
+    if (Object.keys(userAnswers).length !== randomQuestions.length) {
       alert("Please answer all questions before submitting.");
       return;
     }
     let newScore = 0;
-    questionSet.questions.forEach((q, index) => {
+    randomQuestions.forEach((q, index) => {
       if (userAnswers[index] === q.correctAnswer) {
         newScore++;
       }
@@ -141,65 +226,72 @@ const QuestionSet = ({ questionSet }) => {
   return (
     <div>
       <h3>{questionSet.title}</h3>
-      {questionSet.questions.map((q, index) => (
-        <div key={index} style={{ marginBottom: '15px' }}>
-          <p><strong>{index + 1}. {q.question}</strong></p>
-          <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {q.options.map((option, optionIndex) => (
-              <li key={optionIndex}>
-                <label style={{
-                  color: submitted
-                    ? userAnswers[index] === option
-                      ? option === q.correctAnswer
-                        ? 'green'
-                        : 'red'
+      {/* Use key={quizId} to force re-render of the entire question set */}
+      <div key={quizId}>
+        {randomQuestions.map((q, index) => (
+          <div key={`${quizId}-${index}`} style={{ marginBottom: '15px' }}>
+            <p><strong>{index + 1}. {q.question}</strong></p>
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
+              {q.options.map((option, optionIndex) => (
+                <li key={`${quizId}-${index}-${optionIndex}`}>
+                  <label style={{
+                    color: submitted
+                      ? userAnswers[index] === option
+                        ? option === q.correctAnswer
+                          ? 'green'
+                          : 'red'
+                        : 'inherit'
                       : 'inherit'
-                    : 'inherit'
-                }}>
-                  <input
-                    type="radio"
-                    name={`question-${index}`}
-                    value={option}
-                    onChange={() => handleAnswerChange(index, option)}
-                    disabled={submitted}
-                  />
-                  {option}
-                </label>
-              </li>
-            ))}
-          </ul>
-          {submitted && userAnswers[index] !== q.correctAnswer && (
-            <p style={{ color: 'green' }}>Correct answer: {q.correctAnswer}</p>
-          )}
-        </div>
-      ))}
+                  }}>
+                    <input
+                      type="radio"
+                      name={`question-${quizId}-${index}`} // Add quizId to name
+                      value={option}
+                      checked={userAnswers[index] === option}
+                      onChange={() => handleAnswerChange(index, option)}
+                      disabled={submitted}
+                    />
+                    {option}
+                  </label>
+                </li>
+              ))}
+            </ul>
+            {submitted && userAnswers[index] !== q.correctAnswer && (
+              <p style={{ color: 'green' }}>Correct answer: {q.correctAnswer}</p>
+            )}
+          </div>
+        ))}
+      </div>
       {!submitted && (
-        <button onClick={handleSubmit} style={{
-          padding: '10px 20px',
-          backgroundColor: '#2c3e50',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer'
-        }}>
-          Submit
-        </button>
-      )}
-      {submitted && (
-        <div>
-          <h4>Your Score: {score} out of {questionSet.questions.length}</h4>
-          <button onClick={() => {
-            setSubmitted(false);
-            setUserAnswers({});
-            setScore(0);
-          }} style={{
+        <button 
+          onClick={handleSubmit} 
+          style={{
             padding: '10px 20px',
             backgroundColor: '#2c3e50',
             color: 'white',
             border: 'none',
             borderRadius: '5px',
-            cursor: 'pointer'
-          }}>
+            cursor: 'pointer',
+            marginRight: '10px'
+          }}
+        >
+          Submit
+        </button>
+      )}
+      {submitted && (
+        <div>
+          <h4>Your Score: {score} out of {randomQuestions.length}</h4>
+          <button 
+            onClick={initializeQuiz}
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#2c3e50',
+              color: 'white',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer'
+            }}
+          >
             Retake Quiz
           </button>
         </div>
@@ -207,14 +299,12 @@ const QuestionSet = ({ questionSet }) => {
     </div>
   );
 };
-
 function BSTPage() {
   const [currentSection, setCurrentSection] = useState('aim');
 
   const handleSectionClick = (sectionId) => {
     setCurrentSection(sectionId);
   };
-  
 
   const renderSectionContent = (sectionId) => {
     switch (sectionId) {
@@ -223,7 +313,7 @@ function BSTPage() {
           <section id="aim">
             <h2>Aim</h2>
             <p>
-            This page aims to provide a comprehensive understanding of Binary Search Trees (BSTs), covering their properties, implementation, and applications in computer science and data structures. It includes interactive quizzes to test your knowledge, an interactive visualizer for exploring BST operations, and curated reading materials for deeper insights.
+              This page aims to provide a comprehensive understanding of Binary Search Trees (BSTs), covering their properties, implementation, and applications in computer science and data structures. It includes interactive quizzes to test your knowledge, an interactive visualizer for exploring BST operations, and curated reading materials for deeper insights.
             </p>
           </section>
         );
@@ -284,7 +374,7 @@ function BSTPage() {
             <p>Additionally, level order traversal visits nodes level by level from top to bottom.</p>
           </section>
         );
-        case 'visualizer':
+      case 'visualizer':
         return (
           <section id="visualizer">
             <h2>Binary Search Tree Visualizer</h2>
@@ -331,9 +421,9 @@ function BSTPage() {
         return (
           <section id="FurtherReading">
             <h2>Further Reading/References</h2>
-            <h2>Binary tree in c++</h2>
-            <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ScdwdSCnXDU?si=qLLX8b7RM57Xpirm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h2>Binary tree in C++</h2>
+            <div className="video-container">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/ScdwdSCnXDU?si=qLLX8b7RM57Xpirm" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
             <h2>Links</h2>
             <ul>
@@ -343,7 +433,7 @@ function BSTPage() {
             </ul>
           </section>
         );
-     
+
       default:
         return null;
     }
@@ -351,60 +441,55 @@ function BSTPage() {
 
   return (
     <>
-    <Header></Header>
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
-      <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
-        <h1>Binary Search Trees in Data Structures</h1>
-      </header>
+      <Header />
+      <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff' }}>
+        <header style={{ padding: '10px', backgroundColor: '#2c3e50', color: 'white' }}>
+          <h1>Binary Search Trees in Data Structures</h1>
+        </header>
 
-      <div style={{ display: 'flex', marginTop: '20px' }}>
-        <nav style={{
-          width: '200px',
-          marginRight: '20px',
-          backgroundColor: '#fff',
-          padding: '15px',
-          borderRadius: '5px',
-          boxShadow: '0 0 10px rgba(0,0,0,0.1)'
-        }}>
-          <h2>Contents</h2>
-          <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals','visualizer', 'quiz', 'analysis', 'posttest', 'FurtherReading'].map((section) => (
-              <li key={section}>
-                <a 
-                  href={`#${section}`} 
-                  style={{ textDecoration: 'none', color: '#2c3e50' }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSectionClick(section);
-                  }}
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1).replace('-', ' ')}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <main style={{ flexGrow: 1 }}>
-          <div style={{
+        <div style={{ display: 'flex', marginTop: '20px' }}>
+          <nav style={{
+            width: '200px',
+            marginRight: '20px',
             backgroundColor: '#fff',
-            padding: '20px',
+            padding: '15px',
             borderRadius: '5px',
-            boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-            maxWidth: '800px',
-            marginLeft: 'auto',
-            marginRight: 'auto'
+            boxShadow: '0 0 10px rgba(0,0,0,0.1)'
           }}>
-            {renderSectionContent(currentSection)}
-          </div>
-        </main>
-      </div>
+            <h2>Contents</h2>
+            <ul style={{
+              listStyleType: 'none',
+              padding: 0,
+              margin: 0,
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              {['aim', 'overview', 'recap', 'pretest', 'bst-operations', 'traversals', 'visualizer', 'quiz', 'analysis', 'posttest', 'FurtherReading'].map((section) => (
+                <li key={section} style={{ marginBottom: '10px', cursor: 'pointer' }} onClick={() => handleSectionClick(section)}>
+                  {section.charAt(0).toUpperCase() + section.slice(1).replace('-', ' ')}
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-      
-    </div>
-    <Footer></Footer>
+          <main style={{ flexGrow: 1 }}>
+            <div style={{
+              backgroundColor: '#fff',
+              padding: '20px',
+              borderRadius: '5px',
+              boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+              maxWidth: '800px',
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}>
+              {renderSectionContent(currentSection)}
+            </div>
+          </main>
+        </div>
+      </div>
+      <Footer />
     </>
-    );
+  );
 }
 
 export default BSTPage;
